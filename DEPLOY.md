@@ -1,28 +1,39 @@
-# RYZE STUDIOS — deploy
+# RYZE STUDIOS — repo
 
-The repo is already initialised and committed. All that's left is creating the GitHub
-repo and pushing — that part needs your account, so it's the one thing I can't do.
-
-## 1. Fix two links first (2 minutes)
-
-In `index.html`, search for `TODO`:
-
-- `mailto:hello@ryzestudios.com` → your real email
-- `https://wa.me/910000000000` → `https://wa.me/91` + your WhatsApp number, no spaces
-  (e.g. a number `98470 12345` becomes `https://wa.me/919847012345`)
-
-Then commit the change:
-
-```powershell
-cd ryze
-git add -A
-git commit -m "contact details"
+```
+ryze/
+├── index.html          ← the whole site, self-contained (inline CSS + JS)
+├── voxel-sandbox.html  ← playable demo, linked from the work section
+├── og.png              ← 1200×630 share image for WhatsApp / LinkedIn
+└── DEPLOY.md
 ```
 
-## 2. Create the repo and push
+## What I changed in your version
 
-Go to **github.com/new**, name it `ryze` (or `ryze-studios`), **Public**, and do **not**
-add a README. Then:
+Your file was better than the one I built — real point of view, page transitions,
+custom cursor, WhatsApp-first. I kept all of it and fixed six things:
+
+| # | Was | Now | Why it mattered |
+|---|---|---|---|
+| 1 | `₹X,XXX` / `₹XX,XXX` on every tier | ₹6,999 / ₹17,999 / ₹39,999 + add-ons | A pricing page with X's is worse than no pricing page |
+| 2 | Voxel Sandbox card had no link | links to `voxel-sandbox.html`, labelled "Play it now" | It's your best work and it wasn't clickable |
+| 3 | "we / us / our" throughout | "I / me / my" | You're one person. "We" invites "who else?", and you'd have to answer |
+| 4 | No OG tags | `og:title`, `og:description`, `og:image` | You sell on WhatsApp — a link with no preview looks like spam |
+| 5 | No favicon | inline SVG "R" mark | Tab looked unfinished |
+| 6 | Fonts requested cold | `preconnect` to both Google hosts | Saves 100–200 ms on the first paint |
+
+**Prices are my proposal, not your decision.** ₹6,999 / ₹17,999 / ₹39,999 are placed where
+the Kerala market supports them. Change them in the `PRICING` array at the top of the
+script — that's the only place they exist.
+
+## Before you push
+
+1. Open `index.html` and click through all six pages (Home, Services, Work, Pricing,
+   About, Contact). The page transitions use a hash router — check no page is blank.
+2. Open `voxel-sandbox.html` and play 30 seconds.
+3. Send yourself the link on WhatsApp after deploying — confirm the preview image appears.
+
+## Deploy
 
 ```powershell
 cd ryze
@@ -30,44 +41,30 @@ git remote add origin https://github.com/hsf237/ryze.git
 git push -u origin main
 ```
 
-## 3. Turn on Pages
+Then **Settings → Pages → Source: Deploy from a branch → main / (root) → Save**.
+Live in about a minute at `https://hsf237.github.io/ryze/`.
 
-Repo → **Settings → Pages** → Source: **Deploy from a branch** → Branch: **main**,
-folder **/ (root)** → Save.
+## Known trade-offs (deliberate, not bugs)
 
-Wait ~60 seconds. Live at:
+- **Google Fonts.** Three families (Bricolage Grotesque, Instrument Serif, Inter) are
+  remote. That's what gives the site its character, but the first paint waits on the
+  network. If you ever need it fully offline: download the woff2 files, subset them, and
+  swap the `<link>` for local `@font-face` rules. You'll save ~250 KB.
+- **All content lives in JS.** Clean to edit, but search engines and link previews see an
+  almost empty page. The OG tags cover WhatsApp; for Google, add a `<noscript>` block with
+  your name, city and services.
+- **Hash routing** (`#/work`) means no separate URLs per page. Fine for a studio, bad if
+  you ever want `ryze/work` to rank on its own.
 
-```
-https://hsf237.github.io/ryze/
-```
+## Editing content
 
-## 4. After it's live
+Everything is in the `/* ===== EDIT ME ===== */` block at the top of the `<script>`:
 
-- Open it on your phone, not just the desktop. Tap "Play the live demo" — the voxel game
-  needs WebGL2, so use Chrome or Safari, not an in-app browser (Instagram/WhatsApp
-  webviews will show a black screen).
-- Add the URL to your LinkedIn headline and your GitHub profile README.
-- In the old `hasan` repo, add one line to `index.html` pointing at the studio site so
-  the two don't compete: `<a href="https://hsf237.github.io/ryze/">RYZE STUDIOS →</a>`
+- `PHONE` — WhatsApp number, digits only, with country code (currently `919496829330`)
+- `PRICING` — the three tiers
+- `ADDONS` — the add-on rows
+- `WK` — the four work cards: `[name, description, url, cardBg, textColor, tags]`
+- `FQ` — FAQ rows
+- `WHY`, `PRO`, `SV`, `NEED` — copy blocks
 
-## What's in here
-
-| File | Size | Purpose |
-|---|---|---|
-| `index.html` | ~11 KB | The studio site, single page, 8 sections |
-| `styles.css` | ~14 KB | All styling. No framework, no fonts loaded |
-| `voxel-sandbox.html` | ~68 KB | The playable demo linked from the work section |
-
-Total: **92 KB** for the whole studio, including a 3D game.
-
-## Changing the look later
-
-Everything lives in `:root` at the top of `styles.css`:
-
-```css
---accent:#c8ff2e;   /* swap for #ff5c1a (orange) or #3b5bff (cobalt) */
---bg:#0a0a0b;       /* try #f7f6f3 for a light version — you'll also need to flip
-                       --fg, --dim, --card and --line */
-```
-
-Editing one hex value changes the entire site's accent.
+A URL containing `.html` is treated as local; anything else is prefixed with `https://`.

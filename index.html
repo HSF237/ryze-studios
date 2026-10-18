@@ -1,275 +1,181 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RYZE STUDIOS — fast websites &amp; browser tools</title>
-<meta name="description" content="One developer. Websites and browser tools that load instantly, ship in days, and are handed over as files you own.">
-<meta property="og:title" content="RYZE STUDIOS">
-<meta property="og:description" content="One developer. Websites and browser tools that load instantly, ship in days, and are yours.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RYZE STUDIOS — Websites that turn visitors into customers</title>
+<meta name="description" content="RYZE STUDIOS builds fast, premium websites for shop owners and local businesses. Live in days, no monthly fees.">
+<meta name="theme-color" content="#0e0d0c">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0b'/><text x='16' y='23' font-family='monospace' font-size='20' font-weight='700' fill='%23c8ff2e' text-anchor='middle'>R</text></svg>">
-<link rel="stylesheet" href="styles.css">
+<meta property="og:site_name" content="RYZE STUDIOS">
+<meta property="og:title" content="RYZE STUDIOS — websites that turn visitors into customers">
+<meta property="og:description" content="Fast, hand-coded websites for shops and local businesses. Live in days, files yours forever.">
+<meta property="og:url" content="https://hsf237.github.io/ryze/">
+<meta property="og:image" content="https://hsf237.github.io/ryze/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e0d0c'/%3E%3Ctext x='16' y='23' font-family='sans-serif' font-size='19' font-weight='800' fill='%23ff5a2c' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+:root{--bg:#0e0d0c;--fg:#efeae0;--mu:#8f8a80;--ln:rgba(239,234,224,.13);--ac:#ff5a2c;--cl:#e9e4d8;--ink:#0e0d0c;color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+body{background:var(--bg);color:var(--fg);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
+body:after{content:"";position:fixed;inset:0;z-index:98;pointer-events:none;opacity:.07;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Bricolage Grotesque',Inter,sans-serif;letter-spacing:-.045em;line-height:.95;font-weight:800}
+.wrap{width:min(1200px,91%);margin:0 auto}
+#pb{position:fixed;top:0;left:0;right:0;height:3px;background:var(--ac);transform:scaleX(0);transform-origin:left;z-index:99}
+#cur{position:fixed;inset:0;z-index:95;display:flex;pointer-events:none}
+#cur b{flex:1;background:var(--ac);transform:scaleY(0);transition:transform .6s cubic-bezier(.7,0,.2,1);transition-delay:calc(var(--i)*50ms)}
+#cur.in b{transform:scaleY(1);transform-origin:bottom}#cur.out b{transform:scaleY(0);transform-origin:top}
+#rg{position:fixed;left:0;top:0;width:38px;height:38px;margin:-19px 0 0 -19px;border:1px solid #fff;border-radius:50%;pointer-events:none;z-index:97;mix-blend-mode:difference;opacity:0;transition:width .3s,height .3s,margin .3s,background .3s}
+#rg.h{width:76px;height:76px;margin:-38px 0 0 -38px;background:#fff}
+nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:calc(14px + env(safe-area-inset-top,0px)) max(4.5%,calc((100% - 1200px)/2)) 14px;background:rgba(14,13,12,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--ln)}
+.lg{display:flex;align-items:center;gap:11px;font:800 1.05rem/1 'Bricolage Grotesque',sans-serif;letter-spacing:.14em}.lg small{display:block;font:500 .5rem Inter;letter-spacing:.55em;color:var(--mu);margin-top:5px}
+.lg svg{width:36px;height:36px;transition:transform .9s cubic-bezier(.2,.9,.2,1)}.lg:hover svg{transform:rotate(360deg)}
+.lk{display:flex;gap:30px}.lk a{position:relative;color:var(--mu);font-size:.93rem;transition:color .3s}.lk a:after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:100%;background:var(--ac);transform:scaleX(0);transform-origin:left;transition:transform .4s}.lk a.on,.lk a:hover{color:var(--fg)}.lk a.on:after,.lk a:hover:after{transform:scaleX(1)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:99px;border:0;cursor:pointer;font:500 .95rem Inter;color:var(--ink);background:linear-gradient(var(--ac),var(--ac)) left bottom/100% 0 no-repeat var(--fg);transition:background-size .5s cubic-bezier(.7,0,.2,1),color .3s,transform .25s;will-change:transform}
+.btn:hover{background-size:100% 100%;color:#fff}.btn.big{padding:18px 34px;font-size:1.02rem}
+.btn.gh{color:var(--fg);background:linear-gradient(var(--fg),var(--fg)) left bottom/100% 0 no-repeat transparent;border:1px solid var(--ln)}.btn.gh:hover{color:var(--ink)}
+#bm{display:none;background:0;border:0;width:44px;height:44px;cursor:pointer;position:relative}#bm i{position:absolute;left:10px;right:10px;height:2px;background:var(--fg);transition:.4s}#bm i:nth-child(1){top:16px}#bm i:nth-child(2){top:26px}#bm.x i:nth-child(1){top:21px;transform:rotate(45deg)}#bm.x i:nth-child(2){top:21px;transform:rotate(-45deg)}
+#mn{position:fixed;inset:0;z-index:55;background:var(--bg);display:flex;flex-direction:column;justify-content:center;padding:0 8%;gap:4px;clip-path:circle(0 at 90% 5%);transition:clip-path .8s cubic-bezier(.7,0,.2,1);pointer-events:none}#mn.o{clip-path:circle(150% at 90% 5%);pointer-events:auto}
+#mn a{font:800 clamp(2.6rem,12vw,4.4rem)/1.1 'Bricolage Grotesque';letter-spacing:-.04em;color:var(--mu)}#mn a.on{color:var(--fg);font-family:'Instrument Serif';font-style:italic;font-weight:400}
+main{position:relative;z-index:2}.pg{display:none;padding-top:84px;min-height:80vh}.pg.on{display:block}
+.hero{position:relative;overflow:hidden;padding:clamp(50px,11vh,130px) 0 clamp(70px,12vh,140px)}
+.dw{position:absolute;right:-8vw;top:6%;width:min(58vw,600px);aspect-ratio:1;z-index:0}.disc{width:100%;height:100%;border-radius:50%;background:var(--cl);animation:rise 1.8s cubic-bezier(.2,.9,.2,1) both}@keyframes rise{from{transform:translateY(80%) scale(.8)}}
+.hero .wrap{position:relative;z-index:1}
+.bdg{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--ln);border-radius:99px;padding:7px 16px;font-size:.85rem;color:var(--mu);background:rgba(14,13,12,.5)}.bdg i{width:8px;height:8px;border-radius:50%;background:var(--ac);animation:pl 1.8s infinite}@keyframes pl{50%{opacity:.25}}
+h1{font-size:clamp(3rem,10.4vw,9.4rem);margin:26px 0;mix-blend-mode:difference;color:var(--cl);line-height:.9}h2{font-size:clamp(2.2rem,6.4vw,5rem)}h3{font-size:1.5rem;letter-spacing:-.03em;line-height:1.1;margin-bottom:10px}
+.sub{max-width:560px;color:var(--mu);font-size:clamp(1rem,2vw,1.2rem)}.hero .sub{color:var(--fg);mix-blend-mode:difference}
+.eb{display:flex;align-items:center;gap:12px;font:500 .78rem Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--mu)}.eb:before{content:"";width:30px;height:1px;background:var(--ac)}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.bw{position:absolute;right:max(4.5%,20px);bottom:clamp(20px,5vh,50px);width:112px;height:112px;z-index:3;display:grid;place-items:center;font-size:1.6rem;color:var(--ink);background:var(--ac);border-radius:50%;transition:transform .5s}.bw:hover{transform:scale(1.12)}.bw svg{position:absolute;inset:0;animation:sp 14s linear infinite}.bw text{font:600 9.5px Inter;letter-spacing:2px;fill:var(--ink)}@keyframes sp{to{transform:rotate(360deg)}}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .04em .12em 0;margin-right:.2em}.w i{display:inline-block;font-style:normal;transform:translateY(118%) rotate(5deg);transition:transform 1.05s cubic-bezier(.2,.9,.2,1);transition-delay:calc(var(--k)*65ms)}.sp.on .w i{transform:none}
+.it i{font:italic 400 1.08em 'Instrument Serif',serif;letter-spacing:-.02em}h2 .it i,.ph h1 .it i{color:var(--ac)}
+.r{opacity:0;transform:translateY(36px);transition:opacity .9s,transform .9s cubic-bezier(.2,.9,.2,1);transition-delay:var(--d,0s)}.r.on{opacity:1;transform:none}
+.mq{overflow:hidden;border-block:1px solid var(--ln);padding:22px 0;position:relative;z-index:2}.mt{display:flex;width:max-content;animation:mq 34s linear infinite}.mt span{font:italic 400 clamp(2rem,5vw,3.8rem)/1 'Instrument Serif';white-space:nowrap;padding-right:36px}.mt span b{color:var(--ac);font-style:normal;padding-left:36px}@keyframes mq{to{transform:translateX(-50%)}}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.sec{padding:clamp(60px,10vw,120px) 0}.sec>h2,.sec .eb+h2{margin:20px 0 48px}
+.stt{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}.stt>div{padding:44px 24px 44px 0;border-right:1px solid var(--ln)}.stt>div:last-child{border:0}.st{font:800 clamp(2.6rem,6vw,4.6rem)/1 'Bricolage Grotesque';letter-spacing:-.05em}.stt p{color:var(--mu);margin-top:6px}
+.col{border-top:1px solid var(--ln);padding:26px 0}.col .ic{font-size:1.8rem;margin-bottom:34px}.col p{color:var(--mu)}
+.inv{background:var(--cl);color:var(--ink);position:relative;z-index:2;border-radius:40px 40px 0 0}.inv .eb{color:#6b665c}.inv .col{border-color:rgba(14,13,12,.18)}.inv .col p{color:#5a554c}.inv .num{font:italic 400 4.6rem/1 'Instrument Serif';color:var(--ac);margin-bottom:30px}
+.row{display:grid;grid-template-columns:70px 1fr 1.3fr 40px;gap:20px;align-items:center;padding:34px 0;border-top:1px solid var(--ln);transition:padding .5s cubic-bezier(.2,.9,.2,1),background .4s}.row:last-child{border-bottom:1px solid var(--ln)}.row:hover{padding-left:24px;background:rgba(239,234,224,.04)}
+.row h3{font-size:clamp(1.6rem,3.2vw,2.5rem);margin:0}.row p{color:var(--mu)}.row .n{color:var(--ac);font:500 .9rem Inter}.row .ar{font-size:1.7rem;transition:transform .5s,color .3s}.row:hover .ar{transform:rotate(45deg);color:var(--ac)}
+.ph{padding:clamp(40px,9vh,100px) 0 50px}.ph h1{font-size:clamp(2.8rem,9vw,7.4rem);mix-blend-mode:normal;color:var(--fg);margin:26px 0}
+.wc{border-radius:30px;padding:24px;min-height:380px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .55s cubic-bezier(.2,.9,.2,1)}.wc:hover{transform:translateY(-10px) rotate(-.6deg)}
+.wc h3{font:italic 400 clamp(2.2rem,4vw,3rem)/1 'Instrument Serif';letter-spacing:-.02em;margin-bottom:8px}.wc p{opacity:.75}.tg{display:flex;flex-wrap:wrap;gap:6px}.tg span,.chp{border:1px solid currentColor;border-radius:99px;padding:4px 13px;font-size:.78rem;opacity:.8}
+.pc{display:flex;flex-direction:column;position:relative;border:1px solid var(--ln);border-radius:30px;padding:34px 30px;transition:transform .55s cubic-bezier(.2,.9,.2,1),border-color .4s}.pc:hover{transform:translateY(-10px);border-color:var(--fg)}.pc p,.pc li{color:var(--mu)}
+.pc ul{list-style:none;padding:0;margin:22px 0 30px;flex:1}.pc li{padding:9px 0;border-bottom:1px solid var(--ln)}.pc li:before{content:"→ ";color:var(--ac)}
+.pr{font:800 3.4rem 'Bricolage Grotesque';letter-spacing:-.05em;margin:20px 0 2px}.pr small{font:400 .95rem Inter;color:var(--mu);letter-spacing:0}
+.pop{background:var(--cl);color:var(--ink);border-color:var(--cl)}.pop p,.pop li{color:#5a554c}.pop li{border-color:rgba(14,13,12,.15)}.pop .btn{background-color:var(--ink);color:var(--fg)}.pop .bd{position:absolute;top:22px;right:22px;background:var(--ac);color:#fff;font:600 .7rem Inter;letter-spacing:.08em;padding:5px 13px;border-radius:99px}
+.ad{display:flex;justify-content:space-between;gap:12px;padding:20px 0;border-top:1px solid var(--ln);font-size:1.1rem}.ad span{color:var(--mu)}
+.fq{border-top:1px solid var(--ln);padding:24px 0;cursor:pointer}.fq h3{display:flex;justify-content:space-between;margin:0;font-size:1.3rem}.fq h3:after{content:"+";font-size:1.8rem;line-height:.8;transition:transform .5s;color:var(--ac)}.fq.on h3:after{transform:rotate(135deg)}.fq p{max-height:0;overflow:hidden;color:var(--mu);transition:max-height .5s,margin .5s}.fq.on p{max-height:200px;margin-top:12px}
+.big{font:500 clamp(1.5rem,3.6vw,2.8rem)/1.25 'Bricolage Grotesque';letter-spacing:-.03em;max-width:980px}.big em{font:italic 400 1.1em 'Instrument Serif';color:var(--ac)}
+.cts{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}.chp{cursor:pointer;padding:11px 19px;font-size:.93rem;background:0;color:var(--fg);opacity:1;border-color:var(--ln);transition:.3s;font-family:Inter}.chp:hover{border-color:var(--fg)}.chp.on{background:var(--fg);color:var(--ink)}
+input{width:100%;padding:17px 20px;border-radius:16px;border:1px solid var(--ln);background:transparent;color:var(--fg);font:inherit;margin-bottom:20px}input:focus{outline:0;border-color:var(--ac)}
+.cb{background:var(--cl);color:var(--ink);border-radius:40px;padding:clamp(44px,9vw,110px) clamp(24px,6vw,80px);margin:30px auto 60px}.cb h2{font-size:clamp(2.4rem,8vw,6.4rem);max-width:900px}.cb .btn{background-color:var(--ink);color:var(--fg);margin-top:40px}.cb .eb{color:#6b665c;margin-bottom:22px}
+footer{position:relative;z-index:2;border-top:1px solid var(--ln);padding:56px 0 30px;color:var(--mu);font-size:.92rem;overflow:hidden}footer .f{display:flex;flex-wrap:wrap;gap:36px;justify-content:space-between}footer a:hover{color:var(--fg)}footer .c{display:flex;flex-direction:column;gap:8px}
+.wm{font:800 clamp(3.4rem,17.5vw,15rem)/.82 'Bricolage Grotesque';letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px var(--ln);margin-top:50px;white-space:nowrap}
+#wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:70;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:27px;transition:transform .4s}#wa:hover{transform:scale(1.1) rotate(-8deg)}
+@media(max-width:860px){.lk,nav>.btn{display:none}#bm{display:block}.dw{width:96vw;right:-34vw;top:30%}.bw{width:92px;height:92px}.row{grid-template-columns:44px 1fr 28px}.row p{grid-column:2/4}#rg{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
+</style>
 </head>
 <body>
+<div id="pb"></div><div id="rg"></div>
+<div id="cur"><b style="--i:0"></b><b style="--i:1"></b><b style="--i:2"></b><b style="--i:3"></b><b style="--i:4"></b></div>
+<nav>
+<a class="lg" href="#/"><svg viewBox="0 0 32 32" fill="none" stroke="#efeae0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="14.5"/><path d="M12 22V10h5.5a3.5 3.5 0 0 1 0 7H12m5.5 0 4 5"/></svg><span>RYZE<small>STUDIOS</small></span></a>
+<div class="lk" id="lk"></div><a class="btn mag" data-wa>WhatsApp us</a>
+<button id="bm" aria-label="Menu"><i></i><i></i></button>
+</nav>
+<div id="mn"></div>
+<main>
+<section class="pg" id="home">
+<div class="hero"><div class="dw" id="dc"><div class="disc"></div></div>
+<div class="wrap"><div class="bdg r"><i></i>Taking 2 projects — November</div>
+<h1 class="sp" data-t="Websites that turn visitors into *customers."></h1>
+<p class="sub r">Fast, beautiful websites for shop owners and local businesses. Live in days, files yours forever. No monthly fees, no page builders.</p>
+<div class="cta r"><a class="btn big mag" data-wa>Chat on WhatsApp →</a><a class="btn big gh mag" href="#/pricing">See pricing</a></div></div>
+<a class="bw" data-wa>↗<svg viewBox="0 0 120 120"><defs><path id="cp" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text><textPath href="#cp" textLength="284">WHATSAPP US ✺ CHAT NOW ✺ </textPath></text></svg></a></div>
+<div class="mq"><div class="mt" id="mt"></div></div>
+<div class="wrap"><div class="stt" id="stt"></div></div>
+<div class="wrap sec"><p class="eb r">01 — The problem</p><h2 class="sp" data-t="Your customers are online. *Are *you?"></h2><div class="grid" id="why"></div></div>
+<div class="inv"><div class="wrap sec"><p class="eb r">02 — Process</p><h2 class="sp" data-t="From hello to *live in *days."></h2><div class="grid" id="pro"></div></div></div>
+</section>
 
-<a class="skip" href="#main">Skip to content</a>
+<section class="pg" id="services"><div class="wrap"><header class="ph"><p class="eb r">Services</p><h1 class="sp" data-t="Everything your business needs to *shine *online."></h1><p class="sub r">One person, one WhatsApp chat, everything handled.</p></header><div id="svc" style="margin-bottom:60px"></div></div></section>
 
-<header class="bar">
-  <div class="wrap bar-in">
-    <a class="wordmark" href="#top">RYZE<span>STUDIOS</span></a>
-    <nav aria-label="Sections">
-      <a href="#work">Work</a>
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#about">About</a>
-    </nav>
-    <a class="btn btn-p" href="#contact">Start a project</a>
-  </div>
-</header>
+<section class="pg" id="work"><div class="wrap"><header class="ph"><p class="eb r">Selected work</p><h1 class="sp" data-t="Real sites for *real *businesses."></h1><p class="sub r">10+ websites shipped for schools, studios, stores and more.</p></header><div class="grid" id="wk" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-bottom:60px"></div></div></section>
 
-<main id="main">
+<section class="pg" id="pricing"><div class="wrap"><header class="ph"><p class="eb r">Pricing</p><h1 class="sp" data-t="Simple pricing. *No *surprises."></h1><p class="sub r">Pay 50% to start, 50% on delivery. No monthly fees to us.</p></header>
+<div class="grid" id="prc"></div>
+<div class="sec"><p class="eb r">Add-ons</p><h2 class="sp" data-t="Extras when you *need *more."></h2><div id="ado"></div></div>
+<div class="sec" style="padding-top:0"><p class="eb r">FAQ</p><h2 class="sp" data-t="Quick *answers."></h2><div id="fq"></div></div></div></section>
 
-  <!-- ===================== HERO ===================== -->
-  <section class="hero" id="top">
-    <div class="wrap hero-grid">
-      <div class="hero-main">
-        <p class="pill"><span class="dot"></span>Taking 2 projects — November</p>
+<section class="pg" id="about"><div class="wrap"><header class="ph"><p class="eb r">About</p><h1 class="sp" data-t="Code is a canvas. *Website *is art."></h1></header>
+<p class="big r">RYZE STUDIOS is a small, fast web studio. Every site is <em>hand-coded</em>, with no page builders and no plugins, so it loads instantly and you own every single file.</p>
+<div class="grid" id="val" style="margin-top:70px"></div>
+<div class="sec"><p class="eb r">My tools</p><div class="cts r" id="tk" style="margin-top:26px"></div></div></div></section>
 
-        <h1>Websites that load<br>before people<br><em>finish clicking.</em></h1>
-
-        <p class="lede">
-          One developer, no agency in the middle. I build fast sites and browser tools
-          for schools and businesses — delivered as files you own outright, not a
-          subscription you rent.
-        </p>
-
-        <div class="actions">
-          <a class="btn btn-p" href="#work">See the work</a>
-          <a class="btn btn-g" href="voxel-sandbox.html">Play the live demo ↗</a>
-        </div>
-      </div>
-
-      <aside class="hero-side" aria-label="Studio facts">
-        <dl>
-          <div><dt>Based</dt><dd>Kannur, Kerala</dd></div>
-          <div><dt>Team</dt><dd>1 developer</dd></div>
-          <div><dt>Shipped</dt><dd>10+ client sites</dd></div>
-          <div><dt>Typical build</dt><dd>3–5 days</dd></div>
-        </dl>
-      </aside>
-    </div>
-
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-track">
-        <span>TISK EMS</span><i>·</i><span>MERIDIAN ARCH</span><i>·</i><span>LEENS</span><i>·</i>
-        <span>COREUI-KIT</span><i>·</i><span>VOTE.TISKEMS</span><i>·</i><span>ZEROX OPENWORLD</span><i>·</i>
-        <span>TISK EMS</span><i>·</i><span>MERIDIAN ARCH</span><i>·</i><span>LEENS</span><i>·</i>
-        <span>COREUI-KIT</span><i>·</i><span>VOTE.TISKEMS</span><i>·</i><span>ZEROX OPENWORLD</span><i>·</i>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== PROOF ===================== -->
-  <section class="proof" aria-label="At a glance">
-    <div class="wrap proof-grid">
-      <div><b>10+</b><span>sites shipped for paying clients</span></div>
-      <div><b>68 KB</b><span>entire 3D game, one file</span></div>
-      <div><b>0</b><span>plugins, frameworks or trackers</span></div>
-      <div><b>&lt;1 s</b><span>to first paint on 4G</span></div>
-    </div>
-  </section>
-
-  <!-- ===================== WORK ===================== -->
-  <section id="work" class="section">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="num">01</span>
-        <h2>Selected work</h2>
-        <p class="sec-sub">Four things worth clicking. The rest is at the bottom.</p>
-      </div>
-
-      <!-- flagship -->
-      <article class="card feature">
-        <div class="card-body">
-          <p class="label">Browser tool · WebGL2 · 2026</p>
-          <h3>Voxel Sandbox</h3>
-          <p class="card-p">
-            An infinite, editable 3D world in a single 68 KB HTML file. No engine, no
-            libraries, no downloaded assets — the terrain, textures and lighting are all
-            generated in code. 22 block types, survival mining, inventory, day/night cycle
-            and saves that survive a refresh.
-          </p>
-          <ul class="tags">
-            <li>WebGL2</li><li>greedy meshing</li><li>procedural art</li><li>4 ms / chunk</li>
-          </ul>
-          <a class="link" href="voxel-sandbox.html">Play it in the browser <span>→</span></a>
-        </div>
-        <div class="card-art" aria-hidden="true">
-          <div class="art-blocks"></div>
-          <p class="art-cap">playable in-browser</p>
-        </div>
-      </article>
-
-      <div class="cards">
-        <article class="card">
-          <p class="label">Client site · Architecture</p>
-          <h3>Meridian Arch Studio</h3>
-          <p class="card-p">
-            Project showcase, services and 3D visualisation work for an architecture firm
-            in Kerala.
-          </p>
-          <ul class="tags"><li>portfolio</li><li>image-led</li></ul>
-        </article>
-
-        <article class="card">
-          <p class="label">Client site · Education</p>
-          <h3>TISK EMS</h3>
-          <p class="card-p">
-            Official site for a CBSE-affiliated school: admissions, academics, events and
-            the photo gallery.
-          </p>
-          <ul class="tags"><li>school</li><li>delivered</li></ul>
-        </article>
-      </div>
-
-      <div class="also">
-        <h3 class="label">Also built</h3>
-        <ul>
-          <li><b>Leens</b> — dark storefront for a computers &amp; mobiles retailer, Abu Dhabi</li>
-          <li><b>CoreUI-Kit</b> — open-source React + Tailwind component library <em>live</em></li>
-          <li><b>vote.tiskems</b> — school election platform, React + Vite + Firebase <em>used for real elections</em></li>
-          <li><b>ZeroxOpenWorld</b> — open-world game in Unity URP <em>in development</em></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== SERVICES ===================== -->
-  <section id="services" class="section alt">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="num">02</span>
-        <h2>What you can buy</h2>
-        <p class="sec-sub">Fixed price, agreed in writing before anything starts. Half up front, half on delivery.</p>
-      </div>
-
-      <div class="tiers">
-        <article class="tier">
-          <h3>One-page site</h3>
-          <p class="price">₹6,000<span>–9,000</span></p>
-          <ul>
-            <li>Mobile-first, up to 6 sections</li>
-            <li>Click-to-call &amp; WhatsApp buttons</li>
-            <li>Loads in under a second</li>
-            <li>Delivered in 3–4 days</li>
-            <li>2 rounds of changes</li>
-          </ul>
-          <a class="btn btn-g" href="#contact">Start here</a>
-        </article>
-
-        <article class="tier feat">
-          <h3>Multi-page site</h3>
-          <p class="price">₹15,000<span>–22,000</span></p>
-          <ul>
-            <li>Up to 5 pages + contact page</li>
-            <li>Basic SEO &amp; link previews</li>
-            <li>Gallery or project pages</li>
-            <li>Delivered in 5–7 days</li>
-            <li>3 rounds of changes</li>
-          </ul>
-          <a class="btn btn-p" href="#contact">Most requested</a>
-        </article>
-
-        <article class="tier">
-          <h3>Custom browser tool</h3>
-          <p class="price">₹10,000<span>+</span></p>
-          <ul>
-            <li>Calculator, dashboard, small game</li>
-            <li>Runs offline, single file</li>
-            <li>Scoped in writing first</li>
-            <li>Timeline agreed up front</li>
-            <li>Hand-over call included</li>
-          </ul>
-          <a class="btn btn-g" href="#contact">Describe it</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== PROCESS ===================== -->
-  <section id="process" class="section">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="num">03</span>
-        <h2>How it goes</h2>
-        <p class="sec-sub">Four steps. No account managers, no discovery workshops.</p>
-      </div>
-
-      <ol class="steps">
-        <li><b>01</b><h3>You describe it</h3><p>One message: what the business does and what the page has to achieve.</p></li>
-        <li><b>02</b><h3>I quote it</h3><p>A fixed price and a fixed list of sections, in writing. You approve before I start.</p></li>
-        <li><b>03</b><h3>You see it live</h3><p>A real URL within days, not a mockup. You request changes on the actual page.</p></li>
-        <li><b>04</b><h3>You own it</h3><p>Plain files and the domain in your name. A short call on how to update it.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ===================== ABOUT ===================== -->
-  <section id="about" class="section alt">
-    <div class="wrap about-grid">
-      <div>
-        <span class="num">04</span>
-        <h2>One person, start to finish</h2>
-      </div>
-      <div class="about-body">
-        <p>
-          I'm Hasan. I'm 14, I live in Kannur, and RYZE is just me — no studio, no
-          subcontractors, no one to forward your email to.
-        </p>
-        <p>
-          I started building websites because I wanted the internet to feel less
-          templated. Since then I've shipped 10+ sites for real clients — my own school's
-          official site, an architecture firm, a retailer in Abu Dhabi — completed a
-          frontend internship, and founded Tech Orbit Hub, a developer community that now
-          spans a few countries.
-        </p>
-        <p>
-          When I'm not building for clients I'm writing engines: a voxel world in raw
-          WebGL2, an open-world game in Unity. That's where the performance habits come
-          from — the same reason your site will load before your customer gives up on it.
-        </p>
-        <p class="sig">— Hasan, RYZE STUDIOS</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== CONTACT ===================== -->
-  <section id="contact" class="section contact">
-    <div class="wrap">
-      <p class="pill"><span class="dot"></span>Taking 2 projects — November</p>
-      <h2>Tell me what you're<br>trying to build.</h2>
-      <p class="contact-sub">Reply time is usually under a day. If you're not sure what you need yet, that's fine — describe the problem.</p>
-
-      <!-- TODO: replace both links with your real email + WhatsApp number -->
-      <div class="contact-actions">
-        <a class="big-link" href="mailto:hello@ryzestudios.com">hello@ryzestudios.com</a>
-        <a class="btn btn-g" href="https://wa.me/910000000000">WhatsApp ↗</a>
-      </div>
-    </div>
-  </section>
-
+<section class="pg" id="contact"><div class="wrap"><header class="ph"><p class="eb r">Contact</p><h1 class="sp" data-t="Let’s build *your *website."></h1><p class="sub r">Tell me what you need and I’ll reply on WhatsApp within 24 hours.</p></header>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-bottom:40px"><div class="pc r"><h3>I need…</h3><div class="cts" id="ch"></div><input id="nm" placeholder="Your name / shop name"><a class="btn big" id="sw">Send on WhatsApp →</a></div>
+<div class="pc r" style="--d:.1s"><h3>Or reach me directly</h3><p style="margin:14px 0">💬 WhatsApp: +91 94968 29330</p><p style="margin:14px 0">✉️ zerox9861@gmail.com</p><p style="margin:14px 0">⏱ Replies within 24 hours</p><p style="margin:14px 0">🚀 Typical delivery: 3–5 days</p></div></div></div></section>
 </main>
-
-<footer class="foot">
-  <div class="wrap foot-in">
-    <span>© <span id="yr">2026</span> RYZE STUDIOS — Kannur, Kerala</span>
-    <span>Built by hand. No cookies, no trackers.</span>
-  </div>
-</footer>
-
+<div class="wrap"><div class="cb r"><p class="eb">Ready?</p><h2 class="sp" data-t="Let’s get your shop more *customers."></h2><a class="btn big mag" data-wa>Start on WhatsApp →</a></div></div>
+<footer><div class="wrap"><div class="f"><div class="c"><b style="color:var(--fg);letter-spacing:.14em">RYZE STUDIOS</b><span>Websites that turn visitors<br>into customers.</span></div><div class="c" id="fl"></div><div class="c"><a data-wa>WhatsApp +91 94968 29330</a><a href="mailto:zerox9861@gmail.com">zerox9861@gmail.com</a><a href="https://github.com/HSF237" target="_blank" rel="noopener">GitHub</a></div></div><div class="wm">RYZE STUDIOS</div><p style="margin-top:24px">© 2026 RYZE STUDIOS · Kerala, India · Working worldwide</p></div></footer>
+<a id="wa" data-wa aria-label="WhatsApp">💬</a>
 <script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
+/* ===== EDIT ME: all site content lives here ===== */
+const PHONE='919496829330';
+const PRICING=[ // template: replace prices + features whenever you like
+{n:'Starter',p:'₹6,999',d:'A sharp one-page site for small shops.',f:['1 page, mobile-first','WhatsApp order button','Google Maps + contact info','Delivered in 3–5 days']},
+{n:'Business',p:'₹17,999',pop:1,d:'The full website for a growing business.',f:['Up to 5 pages','Product / service catalog','Premium animations','SEO basics + speed tuning','Delivered in 5–7 days']},
+{n:'Premium',p:'₹39,999',d:'A custom, high-impact brand experience.',f:['Unlimited pages','Online store or custom tools','3D / advanced motion','Priority support','Custom timeline']}];
+const ADDONS=[['Logo & brand kit','₹2,500'],['Extra page','₹1,500'],['Google Business setup','₹1,200'],['Content writing','₹2,000']];
+const SV=[['Business Websites','A premium home for your shop, clinic, studio or brand.'],['Online Shops & Catalogs','Show your products and take orders straight on WhatsApp.'],['Landing Pages','One powerful page built to turn clicks into enquiries.'],['Redesign & Speed Fix','Old, slow site? I make it modern and lightning fast.'],['Custom Web Tools','Calculators, booking, dashboards and browser tools.'],['Launch & Handover','Domain, hosting setup and every file handed to you.']];
+const WK=[['Meridian Arch Studio','Architecture studio website','meridianarchstudio.com','#c8a97a','#1a1410',['React','Node.js']],['Al Awaans (Leens)','Abu Dhabi tech store, online shop','leens.online','#2d4f55','#efeae0',['E-commerce','React']],['TISK School','Official school website','tiskems.edu.in','#b5523b','#fbf1e6',['Website','Responsive']],['Voxel Sandbox','A playable voxel world in one 68 KB file, built from scratch with WebGL2','voxel-sandbox.html','#5c6b3d','#f1f0e0',['WebGL2','Game']]];
+const FQ=[['How long does a website take?','Typically 3–5 days for a standard site. Bigger builds are quoted with a clear timeline.'],['How does payment work?','50% up front to start, 50% when I deliver. Simple.'],['Are there monthly fees?','No monthly fee to us. Your files are handed over and they are yours.'],['Will it work on mobile?','Yes. Every site is designed mobile-first, because most of your customers are on their phones.'],['Can customers order on WhatsApp?','Absolutely. I add WhatsApp buttons and order links wherever you want them.']];
+const WHY=[['📱','Customers search first','People look you up on their phone before they visit. A great site wins the sale.'],['🕒','Open 24/7','Your website shows products, prices and location while your shop is closed.'],['💬','Orders on WhatsApp','One tap and customers are chatting with you. No complicated checkout.']];
+const PRO=[['1','Chat on WhatsApp','Tell me about your business and goals.'],['2','Plan & price','Clear scope and a fixed price. 50% to start.'],['3','I build it','Design and code in 3–5 days with your feedback.'],['4','Launch & handover','50% on delivery. All files are yours.']];
+const NEED=['A website for my shop','An online store','A landing page','Redesign my old site','Something custom'];
+/* ===== engine ===== */
+const $=id=>document.getElementById(id),P=['home','services','work','pricing','about','contact'],R=(a,f)=>a.map(f).join(''),D=i=>`style="--d:${i*.09}s"`;
+const wa=t=>`https://wa.me/${PHONE}?text=${encodeURIComponent(t)}`;
+document.querySelectorAll('[data-wa]').forEach(a=>{a.href=wa('Hi RYZE STUDIOS! I’d like a website for my business.');a.target='_blank';a.rel='noopener'});
+const links=R(P,p=>`<a href="#/${p==='home'?'':p}" data-p="${p}">${p[0].toUpperCase()+p.slice(1)}</a>`);
+$('lk').innerHTML=links;$('mn').innerHTML=links;$('fl').innerHTML=links;
+$('mt').innerHTML=R([1,2],()=>R(['Websites','Online shops','Landing pages','Redesigns','WhatsApp orders','Mobile-first'],t=>`<span>${t}<b>✺</b></span>`));
+$('stt').innerHTML=R([['10','+','Sites shipped'],['3–5','','Days to launch'],['24','h','Reply time'],['₹0','','Monthly fees']],(s,i)=>`<div class="r" ${D(i)}><div class="st" ${/^\d+$/.test(s[0])?`data-n="${s[0]}" data-s="${s[1]}"`:''}>${s[0]}${s[1]}</div><p>${s[2]}</p></div>`);
+$('why').innerHTML=R(WHY,(s,i)=>`<div class="col r" ${D(i)}><div class="ic">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`);
+$('pro').innerHTML=R(PRO,(s,i)=>`<div class="col r" ${D(i)}><div class="num">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`);
+$('svc').innerHTML=R(SV,(s,i)=>`<div class="row r"><span class="n">0${i+1}</span><h3>${s[0]}</h3><p>${s[1]}</p><span class="ar">↗</span></div>`);
+$('wk').innerHTML=R(WK,(s,i)=>`<div class="wc r" style="background:${s[3]};color:${s[4]};--d:${i*.09}s"><div class="tg">${R(s[5],t=>`<span>${t}</span>`)}</div><div><h3>${s[0]}</h3><p>${s[1]}</p>${s[2]?`<p style="margin-top:14px;opacity:1"><a href="${s[2].indexOf('.html')>0?s[2]:'https://'+s[2]}" target="_blank" rel="noopener" style="border-bottom:1px solid">${s[2].indexOf('.html')>0?'Play it now':s[2]} ↗</a></p>`:''}</div></div>`.replace('" style="background','" style="background'));
+$('prc').innerHTML=R(PRICING,(s,i)=>`<div class="pc r ${s.pop?'pop':''}" ${D(i)}>${s.pop?'<span class="bd">MOST POPULAR</span>':''}<h3>${s.n}</h3><p>${s.d}</p><div class="pr">${s.p}<small> / project</small></div><ul>${R(s.f,f=>`<li>${f}</li>`)}</ul><a class="btn mag" href="${wa('Hi RYZE STUDIOS! I’m interested in the '+s.n+' plan.')}" target="_blank" rel="noopener">Choose ${s.n}</a></div>`);
+$('ado').innerHTML=R(ADDONS,a=>`<div class="ad r"><b>${a[0]}</b><span>${a[1]}</span></div>`);
+$('fq').innerHTML=R(FQ,q=>`<div class="fq r"><h3>${q[0]}</h3><p>${q[1]}</p></div>`);
+$('val').innerHTML=R([['⚡','Speed first','Hand-coded sites that load instantly on any phone.'],['🎨','Craft over templates','Every layout is designed for your business, never copy-pasted.'],['🔑','You own it','No lock-in. Every file is handed over to you.']],(s,i)=>`<div class="col r" ${D(i)}><div class="ic">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`);
+$('tk').innerHTML=R(['HTML / CSS / JS','React','Node.js','Three.js','GSAP','Firebase','WebGL2'],t=>`<span class="chp" style="cursor:default">${t}</span>`);
+document.querySelectorAll('.fq').forEach(f=>f.onclick=()=>f.classList.toggle('on'));
+let pick=NEED[0];$('ch').innerHTML=R(NEED,(n,i)=>`<button class="chp ${i?'':'on'}">${n}</button>`);
+$('ch').onclick=e=>{if(e.target.tagName!=='BUTTON')return;pick=e.target.textContent;[...$('ch').children].forEach(b=>b.classList.toggle('on',b===e.target))};
+$('sw').onclick=()=>open(wa(`Hi RYZE STUDIOS! I’m ${$('nm').value||'a business owner'} and I need: ${pick}.`),'_blank');
+document.querySelectorAll('.sp').forEach(h=>{let k=0;h.innerHTML=h.dataset.t.split(' ').map(w=>{const g=w[0]==='*';return `<span class="w${g?' it':''}"><i style="--k:${k++}">${g?w.slice(1):w}</i></span>`}).join('')});
+function tick(el,n,s){const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/1400);el.textContent=Math.round(n*(1-Math.pow(1-p,4)))+s;if(p<1)requestAnimationFrame(f)})(t0)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);const c=e.target.querySelector('[data-n]');if(c)tick(c,+c.dataset.n,c.dataset.s)}}),{threshold:.15});
+const arm=s=>s.querySelectorAll('.r,.sp').forEach(e=>{e.classList.remove('on');io.unobserve(e);io.observe(e)});
+document.querySelectorAll('.cb,.cb .sp,.cb .r').forEach(e=>io.observe(e));
+let cur=null;
+function show(){let h=location.hash.replace(/^#\/?/,'')||'home';if(!P.includes(h))h='home';document.querySelectorAll('.pg').forEach(s=>s.classList.toggle('on',s.id===h));document.querySelectorAll('[data-p]').forEach(a=>a.classList.toggle('on',a.dataset.p===h));$('mn').classList.remove('o');$('bm').classList.remove('x');scrollTo(0,0);arm($(h));document.title=(h==='home'?'':h[0].toUpperCase()+h.slice(1)+' · ')+'RYZE STUDIOS';cur=h}
+function go(){const c=$('cur');c.className='in';setTimeout(()=>{show();c.className='out'},750);setTimeout(()=>c.className='',1500)}
+addEventListener('hashchange',go);show();
+$('bm').onclick=()=>{$('mn').classList.toggle('o');$('bm').classList.toggle('x')};
+/* cursor ring, magnetic buttons, disc parallax, progress */
+const rg=$('rg'),fine=matchMedia('(pointer:fine)').matches;let tx=0,ty=0,px=0,py=0;
+if(fine){addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;rg.style.opacity=1;rg.classList.toggle('h',!!(e.target.closest&&e.target.closest('a,button,.row,.pc,.wc,.fq,.chp')))});(function l(){px+=(tx-px)*.18;py+=(ty-py)*.18;rg.style.transform=`translate(${px}px,${py}px)`;requestAnimationFrame(l)})()}
+document.querySelectorAll('.mag').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.22}px,${(e.clientY-r.top-r.height/2)*.32}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')});
+addEventListener('scroll',()=>{$('pb').style.transform=`scaleX(${scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)})`;$('dc').style.transform=`translateY(${scrollY*.28}px) rotate(${scrollY*.04}deg)`},{passive:true});
 </script>
 </body>
 </html>
