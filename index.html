@@ -141,6 +141,16 @@ footer{position:relative;z-index:2;border-top:1px solid var(--ln);padding:56px 0
   .nc.n2{right:-3%;bottom:11%}
 }
 
+/* featured-work carousel controls: with scrollbar-width:none the 4th card was
+   unreachable on desktop — no scrollbar, no arrows, no swipe with a mouse */
+.hsw{position:relative}
+.hsn{position:absolute;top:calc(50% - 23px);width:46px;height:46px;border-radius:50%;border:1px solid var(--ln);background:rgba(24,23,21,.92);color:var(--fg);font:400 22px/1 system-ui,sans-serif;display:grid;place-items:center;cursor:pointer;z-index:4;transition:background .2s,color .2s,border-color .2s,opacity .2s}
+.hsn:hover{background:var(--fg);color:var(--ink);border-color:var(--fg)}
+.hsn.prev{left:-14px}
+.hsn.next{right:-14px}
+.hsn[disabled]{opacity:.22;pointer-events:none}
+@media(max-width:900px){.hsn{display:none}}
+
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
 
 ::selection{background:var(--ac);color:#fff}
@@ -186,7 +196,7 @@ nav{top:calc(12px + env(safe-area-inset-top,0px));left:50%;right:auto;width:min(
 <div class="mq"><div class="mt" id="mt"></div></div>
 <div class="wrap"><div class="stt" id="stt"></div></div>
 <div class="wrap sec"><p class="eb r">01 — The problem</p><h2 class="sp" data-t="Your customers are online. *Are *you?"></h2><div class="bento" id="why"></div></div>
-<div class="wrap sec" style="padding-top:0"><p class="eb r">02 — Featured work</p><h2 class="sp" data-t="Built for *real *businesses."></h2><div class="hs" id="hw"></div></div>
+<div class="wrap sec" style="padding-top:0"><p class="eb r">02 — Featured work</p><h2 class="sp" data-t="Built for *real *businesses."></h2><div class="hsw"><div class="hs" id="hw"></div><button class="hsn prev" type="button" aria-label="Previous projects">‹</button><button class="hsn next" type="button" aria-label="More projects">›</button></div></div>
 <div class="inv"><div class="wrap sec"><p class="eb r">03 — Process</p><h2 class="sp" data-t="From hello to *live in *days."></h2><div class="grid" id="pro"></div></div></div>
 </section>
 
@@ -273,6 +283,15 @@ addEventListener('scroll',()=>{$('pb').style.transform=`scaleX(${scrollY/Math.ma
 $('hw').innerHTML=$('wk').innerHTML;
 /* the copy happens after show() armed the page, so re-arm the new cards or they stay invisible */
 $('hw').querySelectorAll('.r').forEach(e=>{e.classList.remove('on');io.observe(e)});
+/* carousel arrows */
+const _hw=$('hw'),_prev=document.querySelector('.hsn.prev'),_next=document.querySelector('.hsn.next');
+function _hwState(){const max=_hw.scrollWidth-_hw.clientWidth-2;_prev.disabled=_hw.scrollLeft<=2;_next.disabled=_hw.scrollLeft>=max}
+function _hwGo(dir){const c=_hw.querySelector('.wc');const step=c?c.getBoundingClientRect().width+16:_hw.clientWidth*.8;_hw.scrollBy({left:dir*step,behavior:'smooth'});setTimeout(_hwState,420)}
+_prev.addEventListener('click',()=>_hwGo(-1));
+_next.addEventListener('click',()=>_hwGo(1));
+_hw.addEventListener('scroll',_hwState,{passive:true});
+addEventListener('resize',_hwState);
+setTimeout(_hwState,600);
 const hv=$('hv'),ph=$('ph');hv.addEventListener('pointermove',e=>{const r=hv.getBoundingClientRect();ph.style.transform=`rotateY(${((e.clientX-r.left)/r.width-.5)*26}deg) rotateX(${-((e.clientY-r.top)/r.height-.5)*18}deg)`});hv.addEventListener('pointerleave',()=>ph.style.transform='');
 </script>
 </body>
