@@ -47,12 +47,12 @@ Kerala market supports them. They live in the `PRICING` array — one place.
 
 ```powershell
 cd ryze
-git remote add origin https://github.com/hsf237/ryze.git
+git remote add origin https://github.com/HSF237/ryze-studios.git
 git push -u origin main
 ```
 
 **Settings → Pages → Source: Deploy from a branch → main / (root) → Save.**
-Live in about a minute at `https://hsf237.github.io/ryze/`.
+Live in about a minute at `https://hsf237.github.io/ryze-studios/`.
 
 ## Known trade-offs (deliberate, not bugs)
 
