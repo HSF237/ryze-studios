@@ -167,6 +167,11 @@ footer{position:relative;z-index:2;border-top:1px solid var(--ln);padding:56px 0
 /* balanced headline wrapping: stops one-word widow lines like "Are / you?" */
 h2.sp,.sec h2,h1.sp{text-wrap:balance}
 
+/* the floating nav was rgba(.74) — over the cream CTA block it turned grey and the
+   links lost contrast exactly where the primary button lives */
+nav{background:rgba(18,17,16,.92);box-shadow:0 10px 30px -18px rgba(0,0,0,.85)}
+@supports (backdrop-filter:blur(1px)){nav{background:rgba(18,17,16,.82)}}
+
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
 
 ::selection{background:var(--ac);color:#fff}
