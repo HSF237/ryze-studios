@@ -4,6 +4,7 @@
 ryze/
 ├── index.html          ← the whole site (inline CSS + JS, six "pages" via hash router)
 ├── voxel-sandbox.html  ← playable demo, linked from the work cards
+├── shots/              ← homepage screenshots used in the work cards (4 × JPEG, 380 KB)
 ├── og.png              ← 1200×630 share card for WhatsApp / LinkedIn
 └── DEPLOY.md
 ```
@@ -16,6 +17,8 @@ of it and fixed one real bug plus seven things that would have cost you work.
 | # | Was | Now | Why it mattered |
 |---|---|---|---|
 | 1 | **Featured work on the homepage was invisible** | cards re-armed after the copy | `$('hw').innerHTML = $('wk').innerHTML` ran *after* the scroll observer had walked the page, so the four copied cards kept `opacity:0` forever. You'd have shipped a blank row. |
+| 1b | **Headings had a blank line inside them** | `.it i{line-height:1}` | CSS `font:` shorthand resets `line-height` to `normal`, so every italic word was 181 px tall against a 121 px line box — "real" and "businesses." were separated by a 60 px gap |
+| 1c | Work cards were flat colour blocks | **real homepage screenshots** of Meridian, Leens, TISK and the voxel game, framed at 16:10, 380 KB total, lazy-loaded | A portfolio with no pictures of the work is a claim, not evidence |
 | 2 | `₹X,XXX` / `₹XX,XXX` everywhere | ₹6,999 / ₹17,999 / ₹39,999 + add-ons | A pricing page with X's is worse than no pricing page |
 | 3 | Voxel Sandbox card had no link | links to `voxel-sandbox.html`, labelled "Play it now" | Your best work wasn't clickable |
 | 4 | "we / us / our" throughout | "I / me / my" | You're one person. "We" invites "who else?", and you'd have to answer it live |

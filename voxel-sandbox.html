@@ -1516,7 +1516,13 @@ function setInv(open) {
 }
 
 function requestLock() {
-  if (!document.pointerLockElement) canvas.requestPointerLock();
+  if (document.pointerLockElement) return;
+  // Some contexts (file://, embedded panes) refuse pointer lock and throw. That is
+  // not an error worth showing the player — fall back to keyboard-only control.
+  try {
+    const req = canvas.requestPointerLock();
+    if (req && typeof req.catch === 'function') req.catch(() => {});
+  } catch (e) { /* ignore */ }
 }
 
 // ============================== save / load ================================
