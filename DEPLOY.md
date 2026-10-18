@@ -19,6 +19,11 @@ of it and fixed one real bug plus seven things that would have cost you work.
 | 1 | **Featured work on the homepage was invisible** | cards re-armed after the copy | `$('hw').innerHTML = $('wk').innerHTML` ran *after* the scroll observer had walked the page, so the four copied cards kept `opacity:0` forever. You'd have shipped a blank row. |
 | 1b | **Headings had a blank line inside them** | `.it i{line-height:1}` | CSS `font:` shorthand resets `line-height` to `normal`, so every italic word was 181 px tall against a 121 px line box — "real" and "businesses." were separated by a 60 px gap |
 | 1c | Work cards were flat colour blocks | **real homepage screenshots** of Meridian, Leens, TISK and the voxel game, framed at 16:10, 380 KB total, lazy-loaded | A portfolio with no pictures of the work is a claim, not evidence |
+| 1d | **Below 900 px the cream disc covered the headline, both buttons and the proof row** | disc hidden on one-column layouts, phone gets an orange glow instead | At 860 px "See pricing" was literally invisible — cream text on a cream circle |
+| 1e | Rotating WhatsApp badge collided with the phone and the "Found on Google" chip | removed (the green FAB already does that job) | Two WhatsApp CTAs fighting in the same corner |
+| 1f | Hero had no proof above the fold | **10+ sites / 3–5 days / ₹0 monthly**, inset above a hairline | A visitor decided whether to scroll before reaching any evidence |
+| 1g | Headline ran 4 lines with no rhythm control | `text-wrap:balance`, tuned clamp, tightened vertical rhythm | Everything below the fold disappeared on a 1000 px-tall screen |
+| 1h | Phone screens spilled onto the cream disc | glow + stronger shadow + a scroll cue | Hero read flat, nothing anchored the eye |
 | 2 | `₹X,XXX` / `₹XX,XXX` everywhere | ₹6,999 / ₹17,999 / ₹39,999 + add-ons | A pricing page with X's is worse than no pricing page |
 | 3 | Voxel Sandbox card had no link | links to `voxel-sandbox.html`, labelled "Play it now" | Your best work wasn't clickable |
 | 4 | "we / us / our" throughout | "I / me / my" | You're one person. "We" invites "who else?", and you'd have to answer it live |
