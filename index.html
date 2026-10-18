@@ -80,9 +80,31 @@ footer{position:relative;z-index:2;border-top:1px solid var(--ln);padding:56px 0
 #wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:70;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:27px;transition:transform .4s}#wa:hover{transform:scale(1.1) rotate(-8deg)}
 @media(max-width:860px){.lk,nav>.btn{display:none}#bm{display:block}.dw{width:96vw;right:-34vw;top:30%}.bw{width:92px;height:92px}.row{grid-template-columns:44px 1fr 28px}.row p{grid-column:2/4}#rg{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
+
+::selection{background:var(--ac);color:#fff}
+nav{top:calc(12px + env(safe-area-inset-top,0px));left:50%;right:auto;width:min(1120px,94%);transform:translateX(-50%);padding:9px 12px 9px 20px;background:rgba(22,21,19,.74);border:1px solid var(--ln);border-radius:99px}nav .btn{padding:11px 22px}
+.pg{padding-top:96px}.hero .wrap{z-index:auto}.hero h1{font-size:clamp(3rem,7.4vw,7rem)}
+.hg{display:grid;grid-template-columns:1.12fr .88fr;gap:30px;align-items:center}
+.dw{right:3vw;top:8%;width:min(46vw,560px)}
+.hv{position:relative;display:grid;place-items:center;perspective:1100px;min-height:540px}
+.ph1{position:relative;width:min(272px,66vw);aspect-ratio:9/18.5;border-radius:40px;background:#171614;border:6px solid #2b2926;padding:10px;box-shadow:0 50px 90px rgba(0,0,0,.5);transform:rotate(-4deg);transition:transform .25s;transform-style:preserve-3d}
+.nt{position:absolute;top:14px;left:50%;width:70px;height:20px;margin-left:-35px;border-radius:99px;background:#171614;z-index:2}
+.ps{background:var(--cl);color:var(--ink);border-radius:28px;height:100%;padding:38px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:hidden}.ps b{font:800 1.05rem 'Bricolage Grotesque';letter-spacing:-.03em}.ps small{color:#6b665c;font-size:.7rem;margin-top:-8px}
+.pt{height:96px;border-radius:16px;background:var(--ac);display:flex;align-items:end;padding:10px 12px;color:#fff;font:italic 400 1.45rem 'Instrument Serif'}.pgd{display:grid;grid-template-columns:1fr 1fr;gap:8px}.pgd i{font-style:normal;background:#d9d2c2;border-radius:14px;padding:12px 8px;font-size:1.7rem;display:flex;flex-direction:column;gap:4px;text-align:center}.pgd em{font:500 .68rem Inter;font-style:normal}
+.po{margin-top:auto;background:#25d366;color:#052e16;text-align:center;border-radius:99px;padding:11px;font:600 .75rem Inter}
+.nc{position:absolute;display:flex;flex-direction:column;background:var(--fg);color:var(--ink);border-radius:18px;padding:12px 16px;font-size:.85rem;line-height:1.35;box-shadow:0 24px 50px rgba(0,0,0,.4);animation:up 5s ease-in-out infinite alternate;z-index:3}.nc small{color:#6b665c;font-size:.72rem}.n1{left:-6%;top:20%}.n2{right:-4%;bottom:16%;animation-delay:-2.5s;background:var(--ac);color:#fff}.n2 small{color:#ffe2d8}@keyframes up{to{transform:translateY(-14px)}}
+.bento{display:grid;gap:16px;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(220px,auto)}
+.bx{border-radius:30px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;border:1px solid var(--ln);position:relative;overflow:hidden;transition:opacity .9s var(--d,0s),transform .6s cubic-bezier(.2,.9,.2,1)}.bx:hover{transform:translateY(-8px)}
+.bx h3{font-size:clamp(1.5rem,2.6vw,2.3rem)}.bx p{color:var(--mu)}.bx.cr{background:var(--cl);color:var(--ink);border-color:var(--cl)}.bx.cr p{color:#5a554c}.bx.or{background:var(--ac);color:#fff;border-color:var(--ac)}.bx.or p{color:#ffe2d8}
+.s2{grid-column:span 2}.r2{grid-row:span 2}.bx .bg{font:italic 400 clamp(4.5rem,10vw,8rem)/.85 'Instrument Serif'}
+.sb{display:flex;align-items:center;gap:8px;background:#fff;border-radius:99px;padding:16px 22px;color:var(--ink);font-size:1rem;box-shadow:0 12px 30px rgba(14,13,12,.14)}.sb i{width:2px;height:1.1em;background:var(--ac);animation:bk 1s steps(1) infinite}@keyframes bk{50%{opacity:0}}
+.op{align-self:flex-start;border:1px solid var(--fg);border-radius:99px;padding:7px 16px;font:600 .8rem Inter;letter-spacing:.12em;display:flex;gap:9px;align-items:center}.op:before{content:"";width:8px;height:8px;border-radius:50%;background:#25d366;animation:pl 1.8s infinite}
+.hs{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;scrollbar-width:none;margin-right:-4.5vw}.hs::-webkit-scrollbar{display:none}.hs .wc{min-width:min(80vw,380px);scroll-snap-align:start}
+@media(max-width:860px){.hg{grid-template-columns:1fr}.hero{padding-bottom:100px}.hero h1{font-size:clamp(3rem,14vw,5rem)}.dw{width:104vw;right:-2vw;top:auto;bottom:4%}.hv{min-height:470px;margin-top:10px}.n1{left:0}.n2{right:0}.bw{right:14px;bottom:10px;width:84px;height:84px}.bento{grid-template-columns:1fr 1fr}.r2{grid-row:auto}.bx{padding:22px}.pg{padding-top:90px}}
 </style>
 </head>
 <body>
+<noscript><div style="max-width:760px;margin:0 auto;padding:120px 24px;font-family:system-ui"><h1 style="font-size:2.4rem;letter-spacing:-.03em">RYZE STUDIOS</h1><p style="margin:18px 0;color:#8f8a80">Fast, hand-coded websites for shops and local businesses — business websites, online shops, landing pages, redesigns and custom web tools. Based in Kannur, Kerala, working worldwide.</p><p style="color:#8f8a80">WhatsApp +91 94968 29330 · zerox9861@gmail.com</p></div></noscript>
 <div id="pb"></div><div id="rg"></div>
 <div id="cur"><b style="--i:0"></b><b style="--i:1"></b><b style="--i:2"></b><b style="--i:3"></b><b style="--i:4"></b></div>
 <nav>
@@ -94,20 +116,22 @@ footer{position:relative;z-index:2;border-top:1px solid var(--ln);padding:56px 0
 <main>
 <section class="pg" id="home">
 <div class="hero"><div class="dw" id="dc"><div class="disc"></div></div>
-<div class="wrap"><div class="bdg r"><i></i>Taking 2 projects — November</div>
+<div class="wrap hg"><div class="ht"><div class="bdg r"><i></i>Taking 2 projects — November</div>
 <h1 class="sp" data-t="Websites that turn visitors into *customers."></h1>
 <p class="sub r">Fast, beautiful websites for shop owners and local businesses. Live in days, files yours forever. No monthly fees, no page builders.</p>
-<div class="cta r"><a class="btn big mag" data-wa>Chat on WhatsApp →</a><a class="btn big gh mag" href="#/pricing">See pricing</a></div></div>
+<div class="cta r"><a class="btn big mag" data-wa>Chat on WhatsApp →</a><a class="btn big gh mag" href="#/pricing">See pricing</a></div></div><div class="hv r" id="hv"><div class="ph1" id="ph"><div class="nt"></div><div class="ps"><b>🥐 Sunrise Bakery</b><small>Open now · 7am–9pm</small><div class="pt">Fresh every day</div><div class="pgd"><i>🍞<em>Sourdough</em></i><i>🧁<em>Cupcakes</em></i></div><span class="po">Order on WhatsApp</span></div></div><div class="nc n1">💬 <b>New order!</b><small>2× Sourdough · just now</small></div><div class="nc n2">⭐ <b>Found on Google</b><small>Near you · Open now</small></div></div></div>
 <a class="bw" data-wa>↗<svg viewBox="0 0 120 120"><defs><path id="cp" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text><textPath href="#cp" textLength="284">WHATSAPP US ✺ CHAT NOW ✺ </textPath></text></svg></a></div>
 <div class="mq"><div class="mt" id="mt"></div></div>
 <div class="wrap"><div class="stt" id="stt"></div></div>
-<div class="wrap sec"><p class="eb r">01 — The problem</p><h2 class="sp" data-t="Your customers are online. *Are *you?"></h2><div class="grid" id="why"></div></div>
-<div class="inv"><div class="wrap sec"><p class="eb r">02 — Process</p><h2 class="sp" data-t="From hello to *live in *days."></h2><div class="grid" id="pro"></div></div></div>
+<div class="wrap sec"><p class="eb r">01 — The problem</p><h2 class="sp" data-t="Your customers are online. *Are *you?"></h2><div class="bento" id="why"></div></div>
+<div class="wrap sec" style="padding-top:0"><p class="eb r">02 — Featured work</p><h2 class="sp" data-t="Built for *real *businesses."></h2><div class="hs" id="hw"></div></div>
+<div class="inv"><div class="wrap sec"><p class="eb r">03 — Process</p><h2 class="sp" data-t="From hello to *live in *days."></h2><div class="grid" id="pro"></div></div></div>
 </section>
 
 <section class="pg" id="services"><div class="wrap"><header class="ph"><p class="eb r">Services</p><h1 class="sp" data-t="Everything your business needs to *shine *online."></h1><p class="sub r">One person, one WhatsApp chat, everything handled.</p></header><div id="svc" style="margin-bottom:60px"></div></div></section>
 
-<section class="pg" id="work"><div class="wrap"><header class="ph"><p class="eb r">Selected work</p><h1 class="sp" data-t="Real sites for *real *businesses."></h1><p class="sub r">10+ websites shipped for schools, studios, stores and more.</p></header><div class="grid" id="wk" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-bottom:60px"></div></div></section>
+<section class="pg" id="work"><div class="wrap"><header class="ph"><p class="eb r">Selected work</p><h1 class="sp" data-t="Real sites for *real *businesses."></h1><p class="sub r">10+ websites shipped for schools, studios, stores and more.</p></header><div class="grid" id="wk" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-bottom:20px"></div>
+<div id="also"></div></div></section>
 
 <section class="pg" id="pricing"><div class="wrap"><header class="ph"><p class="eb r">Pricing</p><h1 class="sp" data-t="Simple pricing. *No *surprises."></h1><p class="sub r">Pay 50% to start, 50% on delivery. No monthly fees to us.</p></header>
 <div class="grid" id="prc"></div>
@@ -116,7 +140,12 @@ footer{position:relative;z-index:2;border-top:1px solid var(--ln);padding:56px 0
 
 <section class="pg" id="about"><div class="wrap"><header class="ph"><p class="eb r">About</p><h1 class="sp" data-t="Code is a canvas. *Website *is art."></h1></header>
 <p class="big r">RYZE STUDIOS is a small, fast web studio. Every site is <em>hand-coded</em>, with no page builders and no plugins, so it loads instantly and you own every single file.</p>
-<div class="grid" id="val" style="margin-top:70px"></div>
+<div class="pc r" style="margin-top:44px;max-width:800px">
+<p class="eb" style="margin-bottom:16px">Reference</p>
+<p style="font:italic 400 1.45rem/1.45 'Instrument Serif',serif;color:var(--fg)">“Demonstrated a high level of professionalism, dedication, responsibility, and commitment.”</p>
+<p style="margin-top:18px;color:var(--mu);font-size:.88rem">— VEloop Rewards · frontend development internship · Aug–Sep 2026</p>
+</div>
+<div class="grid" id="val" style="margin-top:44px"></div>
 <div class="sec"><p class="eb r">My tools</p><div class="cts r" id="tk" style="margin-top:26px"></div></div></div></section>
 
 <section class="pg" id="contact"><div class="wrap"><header class="ph"><p class="eb r">Contact</p><h1 class="sp" data-t="Let’s build *your *website."></h1><p class="sub r">Tell me what you need and I’ll reply on WhatsApp within 24 hours.</p></header>
@@ -140,6 +169,7 @@ const FQ=[['How long does a website take?','Typically 3–5 days for a standard 
 const WHY=[['📱','Customers search first','People look you up on their phone before they visit. A great site wins the sale.'],['🕒','Open 24/7','Your website shows products, prices and location while your shop is closed.'],['💬','Orders on WhatsApp','One tap and customers are chatting with you. No complicated checkout.']];
 const PRO=[['1','Chat on WhatsApp','Tell me about your business and goals.'],['2','Plan & price','Clear scope and a fixed price. 50% to start.'],['3','I build it','Design and code in 3–5 days with your feedback.'],['4','Launch & handover','50% on delivery. All files are yours.']];
 const NEED=['A website for my shop','An online store','A landing page','Redesign my old site','Something custom'];
+const ALSO=[['CoreUI-Kit','Open-source React + Tailwind component library — live'],['vote.tiskems','School election platform · React, Vite, Firebase — used for real elections'],['ZeroxOpenWorld','Open-world game in Unity URP — in development'],['EduSphere','School management app — in development']];
 /* ===== engine ===== */
 const $=id=>document.getElementById(id),P=['home','services','work','pricing','about','contact'],R=(a,f)=>a.map(f).join(''),D=i=>`style="--d:${i*.09}s"`;
 const wa=t=>`https://wa.me/${PHONE}?text=${encodeURIComponent(t)}`;
@@ -148,7 +178,7 @@ const links=R(P,p=>`<a href="#/${p==='home'?'':p}" data-p="${p}">${p[0].toUpperC
 $('lk').innerHTML=links;$('mn').innerHTML=links;$('fl').innerHTML=links;
 $('mt').innerHTML=R([1,2],()=>R(['Websites','Online shops','Landing pages','Redesigns','WhatsApp orders','Mobile-first'],t=>`<span>${t}<b>✺</b></span>`));
 $('stt').innerHTML=R([['10','+','Sites shipped'],['3–5','','Days to launch'],['24','h','Reply time'],['₹0','','Monthly fees']],(s,i)=>`<div class="r" ${D(i)}><div class="st" ${/^\d+$/.test(s[0])?`data-n="${s[0]}" data-s="${s[1]}"`:''}>${s[0]}${s[1]}</div><p>${s[2]}</p></div>`);
-$('why').innerHTML=R(WHY,(s,i)=>`<div class="col r" ${D(i)}><div class="ic">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`);
+$('why').innerHTML=`<div class="bx cr s2 r2 r"><div><p class="eb" style="color:#6b665c">Step one for every customer</p><h3 style="font-size:clamp(2rem,4vw,3.4rem);margin-top:18px">They search first. Be the shop they find.</h3></div><div class="sb">🔍 bakery near me<i></i></div></div><div class="bx or r" style="--d:.08s"><h3>Orders on WhatsApp</h3><p>One tap and they’re chatting with you.</p></div><div class="bx r" style="--d:.16s"><span class="op">OPEN 24/7</span><p>Your site sells while your shop sleeps.</p></div><div class="bx s2 r" style="--d:.1s"><div class="bg">₹0</div><p>Monthly fees to us. Every file is yours.</p></div><div class="bx cr r" style="--d:.18s"><div class="bg" style="color:var(--ac)">3–5</div><p>Days from hello to live.</p></div>`;
 $('pro').innerHTML=R(PRO,(s,i)=>`<div class="col r" ${D(i)}><div class="num">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`);
 $('svc').innerHTML=R(SV,(s,i)=>`<div class="row r"><span class="n">0${i+1}</span><h3>${s[0]}</h3><p>${s[1]}</p><span class="ar">↗</span></div>`);
 $('wk').innerHTML=R(WK,(s,i)=>`<div class="wc r" style="background:${s[3]};color:${s[4]};--d:${i*.09}s"><div class="tg">${R(s[5],t=>`<span>${t}</span>`)}</div><div><h3>${s[0]}</h3><p>${s[1]}</p>${s[2]?`<p style="margin-top:14px;opacity:1"><a href="${s[2].indexOf('.html')>0?s[2]:'https://'+s[2]}" target="_blank" rel="noopener" style="border-bottom:1px solid">${s[2].indexOf('.html')>0?'Play it now':s[2]} ↗</a></p>`:''}</div></div>`.replace('" style="background','" style="background'));
@@ -156,6 +186,7 @@ $('prc').innerHTML=R(PRICING,(s,i)=>`<div class="pc r ${s.pop?'pop':''}" ${D(i)}
 $('ado').innerHTML=R(ADDONS,a=>`<div class="ad r"><b>${a[0]}</b><span>${a[1]}</span></div>`);
 $('fq').innerHTML=R(FQ,q=>`<div class="fq r"><h3>${q[0]}</h3><p>${q[1]}</p></div>`);
 $('val').innerHTML=R([['⚡','Speed first','Hand-coded sites that load instantly on any phone.'],['🎨','Craft over templates','Every layout is designed for your business, never copy-pasted.'],['🔑','You own it','No lock-in. Every file is handed over to you.']],(s,i)=>`<div class="col r" ${D(i)}><div class="ic">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`);
+$('also').innerHTML='<p class="eb r" style="margin:44px 0 18px">Also built</p>'+R(ALSO,a=>`<div class="ad r"><b>${a[0]}</b><span>${a[1]}</span></div>`);
 $('tk').innerHTML=R(['HTML / CSS / JS','React','Node.js','Three.js','GSAP','Firebase','WebGL2'],t=>`<span class="chp" style="cursor:default">${t}</span>`);
 document.querySelectorAll('.fq').forEach(f=>f.onclick=()=>f.classList.toggle('on'));
 let pick=NEED[0];$('ch').innerHTML=R(NEED,(n,i)=>`<button class="chp ${i?'':'on'}">${n}</button>`);
@@ -176,6 +207,11 @@ const rg=$('rg'),fine=matchMedia('(pointer:fine)').matches;let tx=0,ty=0,px=0,py
 if(fine){addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;rg.style.opacity=1;rg.classList.toggle('h',!!(e.target.closest&&e.target.closest('a,button,.row,.pc,.wc,.fq,.chp')))});(function l(){px+=(tx-px)*.18;py+=(ty-py)*.18;rg.style.transform=`translate(${px}px,${py}px)`;requestAnimationFrame(l)})()}
 document.querySelectorAll('.mag').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.22}px,${(e.clientY-r.top-r.height/2)*.32}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')});
 addEventListener('scroll',()=>{$('pb').style.transform=`scaleX(${scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)})`;$('dc').style.transform=`translateY(${scrollY*.28}px) rotate(${scrollY*.04}deg)`},{passive:true});
+
+$('hw').innerHTML=$('wk').innerHTML;
+/* the copy happens after show() armed the page, so re-arm the new cards or they stay invisible */
+$('hw').querySelectorAll('.r').forEach(e=>{e.classList.remove('on');io.observe(e)});
+const hv=$('hv'),ph=$('ph');hv.addEventListener('pointermove',e=>{const r=hv.getBoundingClientRect();ph.style.transform=`rotateY(${((e.clientX-r.left)/r.width-.5)*26}deg) rotateX(${-((e.clientY-r.top)/r.height-.5)*18}deg)`});hv.addEventListener('pointerleave',()=>ph.style.transform='');
 </script>
 </body>
 </html>
