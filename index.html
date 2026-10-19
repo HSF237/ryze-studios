@@ -245,6 +245,18 @@ nav{background:rgba(12,11,10,.95);box-shadow:0 10px 30px -18px rgba(0,0,0,.85)}
 html:not(.js) #home{display:block}
 html:not(.js) .r{opacity:1;transform:none}
 html:not(.js) .w i{transform:none}
+/* full work grid: 23 shipped sites, thumbnails lazy-loaded */
+.wgh{margin:44px 0 18px;font:700 1.05rem Inter,sans-serif;letter-spacing:-.01em;color:var(--fg)}
+.wgh span{font:500 .8rem Inter,sans-serif;color:var(--mu);margin-left:8px}
+.wg{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:14px}
+.wg a{display:block;border:1px solid var(--ln);border-radius:12px;overflow:hidden;background:#141311;
+  transition:transform .22s ease,border-color .22s ease}
+.wg a:hover{transform:translateY(-4px);border-color:#413a31}
+.wg img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top center;background:#0b0a09}
+.wg span{display:block;padding:11px 13px 1px;font:600 .82rem Inter,sans-serif;color:var(--fg)}
+.wg small{display:block;padding:2px 13px 12px;font:400 .68rem Inter,sans-serif;color:var(--mu);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:600px){.wg{grid-template-columns:1fr 1fr;gap:10px}.wg span{font-size:.72rem;padding:8px 9px 0}.wg small{font-size:.6rem;padding:2px 9px 9px}}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
 
@@ -299,6 +311,8 @@ nav{top:calc(12px + env(safe-area-inset-top,0px));left:50%;right:auto;width:min(
 <section class="pg" id="services"><div class="wrap"><header class="ph"><p class="eb r">Services</p><h1 class="sp" data-t="Everything your business needs to *shine *online."></h1><p class="sub r">One person, one WhatsApp chat, everything handled.</p></header><div id="svc" style="margin-bottom:60px"></div></div></section>
 
 <section class="pg" id="work"><div class="wrap"><header class="ph"><p class="eb r">Selected work</p><h1 class="sp" data-t="Real sites for *real *businesses."></h1><p class="sub r">10+ websites shipped for schools, studios, stores and more.</p></header><div class="grid" id="wk" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-bottom:20px"></div>
+<h3 class="wgh">More work <span>23 more, every one live — click any to open it</span></h3>
+<div class="wg" id="wg"></div>
 <div id="also"></div></div></section>
 
 <section class="pg" id="pricing"><div class="wrap"><header class="ph"><p class="eb r">Pricing</p><h1 class="sp" data-t="Simple pricing. *No *surprises."></h1><p class="sub r">Pay 50% to start, 50% on delivery. No monthly fees to us.</p></header>
@@ -347,7 +361,7 @@ const FQ=[['How long does a website take?','Typically 3–5 days for a standard 
 const WHY=[['📱','Customers search first','People look you up on their phone before they visit. A great site wins the sale.'],['🕒','Open 24/7','Your website shows products, prices and location while your shop is closed.'],['💬','Orders on WhatsApp','One tap and customers are chatting with you. No complicated checkout.']];
 const PRO=[['1','Chat on WhatsApp','Tell me about your business and goals.'],['2','Plan & price','Clear scope and a fixed price. 50% to start.'],['3','I build it','Design and code in 3–5 days with your feedback.'],['4','Launch & handover','50% on delivery. All files are yours.']];
 const NEED=['A website for my shop','An online store','A landing page','Redesign my old site','Something custom'];
-const ALSO=[['CoreUI-Kit','Open-source React + Tailwind component library — live'],['vote.tiskems','School election platform · React, Vite, Firebase — used for real elections'],['ZeroxOpenWorld','Open-world game in Unity URP — in development'],['EduSphere','School management app — in development']];
+const ALSO=[['vote.tiskems','School election platform · React, Vite, Firebase — used for real elections'],['ZeroxOpenWorld','Open-world game in Unity URP — in development']];
 /* ===== engine ===== */
 const $=id=>document.getElementById(id),P=['home','services','work','pricing','about','contact'],R=(a,f)=>a.map(f).join(''),D=i=>`style="--d:${i*.09}s"`;
 const wa=t=>`https://wa.me/${PHONE}?text=${encodeURIComponent(t)}`;
@@ -360,6 +374,35 @@ $('why').innerHTML=`<div class="bx cr s2 r2 r"><div><p class="eb" style="color:#
 $('pro').innerHTML=R(PRO,(s,i)=>`<div class="col r" ${D(i)}><div class="num">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`);
 $('svc').innerHTML=R(SV,(s,i)=>`<div class="row r"><span class="n">0${i+1}</span><h3>${s[0]}</h3><p>${s[1]}</p><span class="ar">↗</span></div>`);
 $('wk').innerHTML=R(WK,(s,i)=>`<div class="wc r${s[6]?' has':''}" style="background:${s[3]};color:${s[4]};--d:${i*.09}s">${s[6]?`<div class="sv"><img src="${s[6]}" alt="${s[0]} — homepage" loading="lazy" decoding="async"></div>`:''}<div class="tg">${R(s[5],t=>`<span>${t}</span>`)}</div><div><h3>${s[0]}</h3><p>${s[1]}</p>${s[2]?`<p style="margin-top:14px;opacity:1"><a href="${s[2].indexOf('.html')>0?s[2]:'https://'+s[2]}" target="_blank" rel="noopener" style="border-bottom:1px solid">${s[2].indexOf('.html')>0?'Play it now':s[2]} ↗</a></p>`:''}</div></div>`.replace('" style="background','" style="background'));
+/* every other shipped site, with a real screenshot of the live page */
+const ALL=[
+ ['CARZO','https://hsf237.github.io/carzo/','w-carzo'],
+ ['Tech Orbit Hub','https://hsf237.github.io/tech-orbit/','w-tech-orbit'],
+ ['Muttam Souq','https://hsf237.github.io/muttamsouq.com/','w-muttamsouq'],
+ ['Ryze Store','https://ryzestore.vercel.app','w-ryzestore'],
+ ['Rendezvous','https://hsf237.github.io/rendezvous.com/','w-rendezvous'],
+ ['G-Zel','https://hsf237.github.io/g-zel.com/','w-g-zel'],
+ ['Ruchi Food','https://hsf237.github.io/ruchifood/','w-ruchifood'],
+ ['Sol Harbor','https://hsf237.github.io/sol-harbor/','w-sol-harbor'],
+ ['Kerala Bus Times','https://kerala-bus-time-report.vercel.app','w-kerala-bus'],
+ ['Pulse Grid','https://pulsegrid-jet.vercel.app','w-pulsegrid'],
+ ['Eco Guard','https://hsf237.github.io/ecoguard/','w-ecoguard'],
+ ['AI Finder','https://aifinder-phi.vercel.app','w-aifinder'],
+ ['Science Quiz','https://hsf237.github.io/sciencequiz/','w-sciencequiz'],
+ ['Play 11','https://hsf237.github.io/play11.com/','w-play11'],
+ ['EduSphere','https://hsf237.github.io/edusphere/','w-edusphere'],
+ ['VEloop Exchange','https://veloop-exchange-center.vercel.app','w-veloop'],
+ ['CoreUI Kit','https://core-ui-kit-v2-3.vercel.app','w-coreui'],
+ ['Elite Web Studio','https://hsf237.github.io/elitewebstudio.in/','w-elitewebstudio'],
+ ['Al Awaans','https://al-awaans-site.vercel.app','w-al-awaans'],
+ ['NOV','https://hsf237.github.io/NOV/','w-nov'],
+ ['Fahad Portfolio','https://hsf237.github.io/fahadsportfolio/','w-fahadsportfolio'],
+ ['Sinan Portfolio','https://hsf237.github.io/sinansportfolio/','w-sinansportfolio']
+];
+$('wg').innerHTML=R(ALL,a=>{
+  let host='';try{host=new URL(a[1]).hostname.replace(/^www\./,'')}catch(e){host=a[1]}
+  return '<a href="'+a[1]+'" target="_blank" rel="noopener"><img src="shots/'+a[2]+'.jpg" alt="'+a[0]+' website" loading="lazy" decoding="async"><span>'+a[0]+'</span><small>'+host+'</small></a>';
+});
 $('prc').innerHTML=R(PRICING,(s,i)=>`<div class="pc r ${s.pop?'pop':''}" ${D(i)}>${s.pop?'<span class="bd">MOST POPULAR</span>':''}<h3>${s.n}</h3><p>${s.d}</p><div class="pr">${s.p}<small> / project</small></div><ul>${R(s.f,f=>`<li>${f}</li>`)}</ul><a class="btn mag" href="${wa('Hi RYZE STUDIOS! I’m interested in the '+s.n+' plan.')}" target="_blank" rel="noopener">Choose ${s.n}</a></div>`);
 $('ado').innerHTML=R(ADDONS,a=>`<div class="ad r"><b>${a[0]}</b><span>${a[1]}</span></div>`);
 $('fq').innerHTML=R(FQ,q=>`<div class="fq r"><h3>${q[0]}</h3><p>${q[1]}</p></div>`);
