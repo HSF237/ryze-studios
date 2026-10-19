@@ -75,3 +75,33 @@ Everything is in the `/* ===== EDIT ME ===== */` block at the top of the `<scrip
 - `FQ`, `WHY`, `PRO`, `SV`, `NEED` — copy blocks
 
 A URL containing `.html` is treated as local; anything else is prefixed with `https://`.
+
+---
+
+## Deploy state (recorded 19 Oct 2026)
+
+| | |
+|---|---|
+| Repo | `https://github.com/HSF237/ryze-studios` |
+| Live | `https://hsf237.github.io/ryze-studios/` |
+| Pages | branch `main`, folder `/ (root)` |
+| Build | `index.html` ~52 KB, self-contained (inline CSS + JS) |
+
+**Assets in `shots/`** — 7 JPEGs, ~600 KB total:
+
+- `site-1.jpg` SOLACE studio page — **the studio's own design, used at the author's instruction**
+- `site-2.jpg` CARZO car dealership page — studio's own design
+- `site-3.jpg` AETHER clothing store page — studio's own design
+- `meridian.jpg` `tisk.jpg` `leens.jpg` `voxel.jpg` — live client sites, used in the work cards
+
+`og.png` is the 1200x630 WhatsApp share card.
+
+**Two things that bite here repeatedly:**
+
+1. **Pages caches for ~10 minutes.** After a push, open in a private tab before assuming a deploy failed.
+2. **Content is JS-rendered.** If the script throws, the page used to go blank. It is now gated on
+   `html.js` (added only at the very end of the script), so a failure shows the full page plus a red
+   error banner instead of an empty screen.
+
+**Known guard rails added during the build:** `.nc` chips hidden, phone screen 9:16.2 to match a real
+screenshot aspect, cycle fade wrapped in `try/finally` so the screen can never stay blank.
