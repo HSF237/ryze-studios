@@ -251,7 +251,10 @@ html:not(.js) .w i{transform:none}
 .wg{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:14px}
 .wg a{display:block;border:1px solid var(--ln);border-radius:12px;overflow:hidden;background:#141311;
   transition:transform .22s ease,border-color .22s ease}
-.wg a:hover{transform:translateY(-4px);border-color:#413a31}
+.wc .sv{position:relative}
+.wth{position:absolute;right:8px;bottom:8px;display:flex;gap:5px;z-index:2}
+.wth i{width:18px;height:4px;border-radius:2px;background:rgba(255,255,255,.45);cursor:pointer;transition:background .2s}
+.wth i.on{background:#fff}
 .wg img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top center;background:#0b0a09}
 .wg span{display:block;padding:11px 13px 1px;font:600 .82rem Inter,sans-serif;color:var(--fg)}
 .wg small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
@@ -356,7 +359,14 @@ const PRICING=[ // template: replace prices + features whenever you like
 {n:'Premium',p:'₹39,999',d:'A custom, high-impact brand experience.',f:['Unlimited pages','Online store or custom tools','3D / advanced motion','Priority support','Custom timeline']}];
 const ADDONS=[['Logo & brand kit','₹2,500'],['Extra page','₹1,500'],['Google Business setup','₹1,200'],['Content writing','₹2,000']];
 const SV=[['Business Websites','A premium home for your shop, clinic, studio or brand.'],['Online Shops & Catalogs','Show your products and take orders straight on WhatsApp.'],['Landing Pages','One powerful page built to turn clicks into enquiries.'],['Redesign & Speed Fix','Old, slow site? I make it modern and lightning fast.'],['Custom Web Tools','Calculators, booking, dashboards and browser tools.'],['Launch & Handover','Domain, hosting setup and every file handed to you.']];
-const WK=[['Meridian Arch Studio','Architecture studio website','meridianarchstudio.com','#c8a97a','#1a1410',['React','Node.js'],'shots/meridian.jpg'],['Al Awaans (Leens)','Abu Dhabi tech store, online shop','leens.online','#2d4f55','#efeae0',['E-commerce','React'],'shots/leens.jpg'],['TISK School','Official school website','tiskems.edu.in','#b5523b','#fbf1e6',['Website','Responsive'],'shots/tisk.jpg'],['Voxel Sandbox','A playable voxel world in one 68 KB file, built from scratch with WebGL2','voxel-sandbox.html','#5c6b3d','#f1f0e0',['WebGL2','Game'],'shots/voxel.jpg']];
+const WK=[
+ ['Hasan — Portfolio','Personal portfolio and playground','hsf237.github.io/hasan','#1b1a17','#efeae0',['Portfolio','Personal'],'shots/hasan.jpg'],
+ ['Al Awaans (Leens)','Abu Dhabi tech store, online shop','leens.online','#2d4f55','#efeae0',['E-commerce','React'],'shots/leens.jpg'],
+ ['CoreUI Kit','Open-source React + Tailwind UI registry','core-ui-kit-v2-3.vercel.app','#cfd6dc','#12181d',['Open source','React'],'shots/w-coreui.jpg'],
+ ['TISK School','Official school website','tiskems.edu.in','#b5523b','#fbf1e6',['Website','Responsive'],'shots/tisk.jpg'],
+ ['Meridian Arch Studio','Architecture studio website','meridianarchstudio.com','#c8a97a','#1a1410',['React','Node.js'],'shots/meridian.jpg'],
+ ['Voxel Sandbox','A playable voxel world in one 68 KB file, built from scratch with WebGL2','voxel-sandbox.html','#5c6b3d','#f1f0e0',['WebGL2','Game'],'shots/voxel.jpg']
+];
 const FQ=[['How long does a website take?','Typically 3–5 days for a standard site. Bigger builds are quoted with a clear timeline.'],['How does payment work?','50% up front to start, 50% when I deliver. Simple.'],['Are there monthly fees?','No monthly fee to us. Your files are handed over and they are yours.'],['Will it work on mobile?','Yes. Every site is designed mobile-first, because most of your customers are on their phones.'],['Can customers order on WhatsApp?','Absolutely. I add WhatsApp buttons and order links wherever you want them.']];
 const WHY=[['📱','Customers search first','People look you up on their phone before they visit. A great site wins the sale.'],['🕒','Open 24/7','Your website shows products, prices and location while your shop is closed.'],['💬','Orders on WhatsApp','One tap and customers are chatting with you. No complicated checkout.']];
 const PRO=[['1','Chat on WhatsApp','Tell me about your business and goals.'],['2','Plan & price','Clear scope and a fixed price. 50% to start.'],['3','I build it','Design and code in 3–5 days with your feedback.'],['4','Launch & handover','50% on delivery. All files are yours.']];
@@ -376,48 +386,40 @@ $('svc').innerHTML=R(SV,(s,i)=>`<div class="row r"><span class="n">0${i+1}</span
 $('wk').innerHTML=R(WK,(s,i)=>`<div class="wc r${s[6]?' has':''}" style="background:${s[3]};color:${s[4]};--d:${i*.09}s">${s[6]?`<div class="sv"><img src="${s[6]}" alt="${s[0]} — homepage" loading="lazy" decoding="async"></div>`:''}<div class="tg">${R(s[5],t=>`<span>${t}</span>`)}</div><div><h3>${s[0]}</h3><p>${s[1]}</p>${s[2]?`<p style="margin-top:14px;opacity:1"><a href="${s[2].indexOf('.html')>0?s[2]:'https://'+s[2]}" target="_blank" rel="noopener" style="border-bottom:1px solid">${s[2].indexOf('.html')>0?'Play it now':s[2]} ↗</a></p>`:''}</div></div>`.replace('" style="background','" style="background'));
 /* every other shipped site, with a real screenshot of the live page */
 const ALL=[
- ['CARZO','https://hsf237.github.io/carzo/','site-2','#12110e','#efeae0',['Store','Racing'],'Dark, racing-themed store for scale models and RC cars'],
- ['Tech Orbit Hub','https://hsf237.github.io/tech-orbit/','w-tech-orbit','#171616','#efeae0',['Community','Hub'],'Free global community for developers and tech creators'],
- ['Muttam Souq','https://hsf237.github.io/muttamsouq.com/','w-muttamsouq','#e8e6dd','#1a1613',['Store','Cart'],'Online store with cart, checkout and delivery'],
- ['Ryze Store','https://ryzestore.vercel.app','w-ryzestore','#141211','#efeae0',['Marketplace','React'],'Marketplace frontend — React, Vite, Firebase'],
- ['Rendezvous','https://hsf237.github.io/rendezvous.com/','w-rendezvous','#d7dedd','#1a1613',['Club','Sport'],'Badminton academy website'],
- ['Güzel','https://hsf237.github.io/g-zel.com/','w-g-zel','#dfddd0','#1a1613',['Brand','Fashion'],'Men\'s clothing label — luxury, kept simple'],
- ['Ruchi Food','https://hsf237.github.io/ruchifood/','w-ruchifood','#121813','#efeae0',['Brand','Food'],'Kerala home-kitchen food brand'],
- ['Sol Harbor','https://hsf237.github.io/sol-harbor/','w-sol-harbor','#141215','#efeae0',['Game','three.js'],'Open-world driving game built with three.js'],
- ['Kerala Bus Times','https://kerala-bus-time-report.vercel.app','w-kerala-bus','#e2e0d5','#1a1613',['Tool','Data'],'Bus timings and stop arrivals across Kerala'],
- ['Pulse Grid','https://pulsegrid-jet.vercel.app','w-pulsegrid','#0e0f11','#efeae0',['Dashboard','IoT'],'IoT telemetry dashboard starter'],
- ['Eco Guard','https://hsf237.github.io/ecoguard/','w-ecoguard','#122a1e','#efeae0',['Campaign','Awareness'],'Plastic-pollution awareness site with an impact calculator'],
- ['AI Finder','https://aifinder-phi.vercel.app','w-aifinder','#0e0d0e','#efeae0',['Web app','AI'],'AI content-authenticity detection web app'],
- ['Science Quiz','https://hsf237.github.io/sciencequiz/','w-sciencequiz','#0d0d0d','#efeae0',['Game','Quiz'],'Space-themed science quiz game'],
- ['Play 11','https://hsf237.github.io/play11.com/','w-play11','#161516','#efeae0',['Brand','Jerseys'],'Jersey brand site — HTML, CSS, vanilla JS'],
- ['EduSphere','https://hsf237.github.io/edusphere/','w-edusphere','#f0ece4','#1a1613',['Platform','School'],'School platform — this URL is serving the deployment guide'],
- ['VEloop Exchange','https://veloop-exchange-center.vercel.app','w-veloop','#0f0e10','#efeae0',['Web app','Rewards'],'Rewards exchange centre redesign'],
- ['CoreUI Kit','https://core-ui-kit-v2-3.vercel.app','w-coreui','#0f0f0e','#efeae0',['Open source','React'],'Open-source React + Tailwind UI registry'],
- ['Elite Web Studio','https://hsf237.github.io/elitewebstudio.in/','w-elitewebstudio','#0e0e0e','#efeae0',['Studio','Cyberpunk'],'Cyberpunk-styled web studio site'],
- ['Al Awaans','https://al-awaans-site.vercel.app','w-al-awaans','#12110e','#efeae0',['Store','UAE'],'Mobile accessories shop, UAE'],
- ['NOV','https://hsf237.github.io/NOV/','w-nov','#0e0f11','#efeae0',['WebGL','3D'],'Cinematic 3D launch page for an AI robot'],
- ['Fahad Portfolio','https://hsf237.github.io/fahadsportfolio/','w-fahadsportfolio','#0d0d0e','#efeae0',['Portfolio'],'Personal portfolio'],
- ['Sinan Portfolio','https://hsf237.github.io/sinansportfolio/','w-sinansportfolio','#0e0d0d','#efeae0',['Portfolio'],'Personal portfolio'],
- ['Hasan Portfolio','https://hsf237.github.io/hasansportfolio.com/','w-hasansportfolio','#0e0d0c','#efeae0',['Portfolio'],'Portfolio — \'14 y/o creative dev\'']
+ ['CARZO','https://carzocrs.vercel.app',['w-carzo'],'#120e0e','#efeae0',['Store','Racing'],'Scale models and RC cars — dark, racing-themed store, Next.js 16 + Tailwind 4'],
+ ['EduSphere','https://eduspere-beta.vercel.app',['w-edusphere'],'#efebe3','#1a1613',['Platform','School'],'School management platform — attendance, homework, exams and parent updates'],
+ ['Tech Orbit Hub','https://hsf237.github.io/tech-orbit/',['w-tech-orbit'],'#171616','#efeae0',['Community','Hub'],'Free global community for developers and tech creators'],
+ ['Muttam Souq','https://hsf237.github.io/muttamsouq.com/',['muttamsouq-0','muttamsouq-1','muttamsouq-2'],'#e8e6dd','#1a1613',['Store','Cart'],'Online store with cart, checkout and delivery'],
+ ['Ryze Store','https://ryzestore.vercel.app',['ryzestore-0','ryzestore-1','ryzestore-2'],'#131210','#efeae0',['Marketplace','React'],'Marketplace frontend — React, Vite, Firebase'],
+ ['Rendezvous','https://hsf237.github.io/rendezvous.com/',['rendezvous-0','rendezvous-1','rendezvous-2'],'#d7dedd','#1a1613',['Club','Sport'],'Badminton academy website'],
+ ['Güzel','https://hsf237.github.io/g-zel.com/',['g-zel-0','g-zel-1','g-zel-2'],'#dfddd0','#1a1613',['Brand','Fashion'],'Men\'s clothing label — luxury, kept simple'],
+ ['Ruchi Food','https://hsf237.github.io/ruchifood/',['ruchifood-0','ruchifood-1','ruchifood-2'],'#121813','#efeae0',['Brand','Food'],'Kerala home-kitchen food brand'],
+ ['Sol Harbor','https://hsf237.github.io/sol-harbor/',['sol-harbor-0','sol-harbor-1','sol-harbor-2'],'#110e11','#efeae0',['Game','three.js'],'Open-world driving game built with three.js'],
+ ['Kerala Bus Times','https://kerala-bus-time-report.vercel.app',['kerala-bus-0','kerala-bus-1','kerala-bus-2'],'#e2e0d5','#1a1613',['Tool','Data'],'Bus timings and stop arrivals across Kerala'],
+ ['Pulse Grid','https://pulsegrid-jet.vercel.app',['pulsegrid-0','pulsegrid-1','pulsegrid-2'],'#0e0f11','#efeae0',['Dashboard','IoT'],'IoT telemetry dashboard starter'],
+ ['AI Finder','https://aifinder-phi.vercel.app',['aifinder-0','aifinder-1','aifinder-2'],'#0e0d0e','#efeae0',['Web app','AI'],'AI content-authenticity detection web app'],
+ ['VEloop Exchange','https://veloop-exchange-center.vercel.app',['veloop-0','veloop-1','veloop-2'],'#0f0e10','#efeae0',['Web app','Rewards'],'Rewards exchange centre redesign'],
+ ['Elite Web Studio','https://hsf237.github.io/elitewebstudio.in/',['elitewebstudio-0','elitewebstudio-1','elitewebstudio-2'],'#0e0e0e','#efeae0',['Studio','Cyberpunk'],'Cyberpunk-styled web studio site'],
+ ['Fahad Portfolio','https://hsf237.github.io/fahadsportfolio/',['fahadsportfolio-0','fahadsportfolio-1','fahadsportfolio-2'],'#0d0d0e','#efeae0',['Portfolio'],'Personal portfolio'],
+ ['Sinan Portfolio','https://hsf237.github.io/sinansportfolio/',['sinansportfolio-0','sinansportfolio-1','sinansportfolio-2'],'#0e0d0d','#efeae0',['Portfolio'],'Personal portfolio']
 ];
-$('wg').innerHTML=R(ALL,(a,i)=>
-  '<div class="wc r has" style="background:'+a[3]+';color:'+a[4]+';--d:'+((i%6)*0.05)+'s">'+
-  '<div class="sv"><img src="shots/'+a[2]+'.jpg" alt="'+a[0]+' website" loading="lazy" decoding="async"></div>'+
-  '<div class="tg">'+R(a[5],t=>'<span>'+t+'</span>')+'</div>'+
-  '<div><h3>'+a[0]+'</h3><p>'+a[6]+'</p>'+
-  '<p style="margin-top:14px;opacity:1"><a href="'+a[1]+'" target="_blank" rel="noopener" style="border-bottom:1px solid">'+
-  a[1].replace(/^https?:\/\//,'').replace(/\/$/,'')+' →</a></p></div></div>');
-$('prc').innerHTML=R(PRICING,(s,i)=>`<div class="pc r ${s.pop?'pop':''}" ${D(i)}>${s.pop?'<span class="bd">MOST POPULAR</span>':''}<h3>${s.n}</h3><p>${s.d}</p><div class="pr">${s.p}<small> / project</small></div><ul>${R(s.f,f=>`<li>${f}</li>`)}</ul><a class="btn mag" href="${wa('Hi RYZE STUDIOS! I’m interested in the '+s.n+' plan.')}" target="_blank" rel="noopener">Choose ${s.n}</a></div>`);
-$('ado').innerHTML=R(ADDONS,a=>`<div class="ad r"><b>${a[0]}</b><span>${a[1]}</span></div>`);
-$('fq').innerHTML=R(FQ,q=>`<div class="fq r"><h3>${q[0]}</h3><p>${q[1]}</p></div>`);
-$('val').innerHTML=R([['⚡','Speed first','Hand-coded sites that load instantly on any phone.'],['🎨','Craft over templates','Every layout is designed for your business, never copy-pasted.'],['🔑','You own it','No lock-in. Every file is handed over to you.']],(s,i)=>`<div class="col r" ${D(i)}><div class="ic">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`);
-$('also').innerHTML='<p class="eb r" style="margin:44px 0 18px">Also built</p>'+R(ALSO,a=>`<div class="ad r"><b>${a[0]}</b><span>${a[1]}</span></div>`);
-$('tk').innerHTML=R(['HTML / CSS / JS','React','Node.js','Three.js','GSAP','Firebase','WebGL2'],t=>`<span class="chp" style="cursor:default">${t}</span>`);
-document.querySelectorAll('.fq').forEach(f=>f.onclick=()=>f.classList.toggle('on'));
-let pick=NEED[0];$('ch').innerHTML=R(NEED,(n,i)=>`<button class="chp ${i?'':'on'}">${n}</button>`);
-$('ch').onclick=e=>{if(e.target.tagName!=='BUTTON')return;pick=e.target.textContent;[...$('ch').children].forEach(b=>b.classList.toggle('on',b===e.target))};
-$('sw').onclick=()=>open(wa(`Hi RYZE STUDIOS! I’m ${$('nm').value||'a business owner'} and I need: ${pick}.`),'_blank');
-document.querySelectorAll('.sp').forEach(h=>{let k=0;h.innerHTML=h.dataset.t.split(' ').map(w=>{const g=w[0]==='*';return `<span class="w${g?' it':''}"><i style="--k:${k++}">${g?w.slice(1):w}</i></span>`}).join('')});
+$('wg').innerHTML=R(ALL,(a,i)=>{
+  const imgs=a[2], first=imgs[0], base=first.replace(/-\d+$/,'');
+  return '<div class="wc r has" style="background:'+a[3]+';color:'+a[4]+';--d:'+((i%6)*0.05)+'s">'+
+    '<div class="sv"><img data-base="'+base+'" src="shots/'+first+'.jpg" alt="'+a[0]+' website" loading="lazy" decoding="async">'+
+    (imgs.length>1?'<div class="wth">'+R(imgs,(x,k)=>'<i data-k="'+k+'" class="'+(k?'':'on')+'"></i>')+'</div>':'')+
+    '</div>'+
+    '<div class="tg">'+R(a[5],t=>'<span>'+t+'</span>')+'</div>'+
+    '<div><h3>'+a[0]+'</h3><p>'+a[6]+'</p>'+
+    '<p style="margin-top:14px;opacity:1"><a href="'+a[1]+'" target="_blank" rel="noopener" style="border-bottom:1px solid">'+
+    a[1].replace(/^https?:\/\//,'').replace(/\/$/,'')+' →</a></p></div></div>';
+});
+document.addEventListener('click',e=>{
+  const t=e.target.closest('.wth i'); if(!t)return;
+  const card=t.closest('.wc'), img=card.querySelector('.sv img');
+  img.src='shots/'+img.dataset.base+'-'+t.dataset.k+'.jpg';
+  card.querySelectorAll('.wth i').forEach(x=>x.classList.toggle('on',x===t));
+});
 function tick(el,n,s){const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/1400);el.textContent=Math.round(n*(1-Math.pow(1-p,4)))+s;if(p<1)requestAnimationFrame(f)})(t0)}
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);const c=e.target.querySelector('[data-n]');if(c)tick(c,+c.dataset.n,c.dataset.s)}}),{threshold:.15});
 const arm=s=>s.querySelectorAll('.r,.sp').forEach(e=>{e.classList.remove('on');io.unobserve(e);io.observe(e)});
