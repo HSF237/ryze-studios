@@ -105,3 +105,31 @@ A URL containing `.html` is treated as local; anything else is prefixed with `ht
 
 **Known guard rails added during the build:** `.nc` chips hidden, phone screen 9:16.2 to match a real
 screenshot aspect, cycle fade wrapped in `try/finally` so the screen can never stay blank.
+
+---
+
+## Brand tokens + share card spec (so any asset can be rebuilt without the source files)
+
+**Palette**
+
+| token | value | use |
+|---|---|---|
+| `--bg` | `#0e0d0c` | page background |
+| `--fg` | `#efeae0` | headlines / body |
+| `--mu` | `#8f8a80` | muted text |
+| `--dimmer` | `#6b6660` | least emphasis |
+| `--ln` | `rgba(239,234,224,.13)` | hairlines |
+| `--ac` | `#ff5a2c` | accent — buttons, italic word, links |
+| `--cl` | `#e9e4d8` | cream — hero disc, inverted panels |
+
+**Type** — headlines `Bricolage Grotesque` 800, tight tracking (-.045em); italic accent words
+`Instrument Serif` italic; body/labels `Inter`. Loaded from Google Fonts with `preconnect`.
+
+**og.png (1200x630)** — background `#0e0d0c`; 6px accent bar top-left at x=78,y=78; "RYZE" in
+Bricolage 800 at ~138px; "STUDIOS" in 21px letter-spaced +13px per glyph, colour `#8f8a80`;
+tagline two lines at 30px — "Websites that turn visitors" in `#efeae0`, "into customers." in `#ff5a2c`;
+footer row 24px muted: left "10+ sites shipped · live in days · files yours forever", right
+"hsf237.github.io/ryze-studios"; 1px border `#26251f`. Regenerate at 1200x630, JPEG/PNG.
+
+**Phone mockup spec** — frame 9:16.2, 7px bezel `#2b2926`, screen shows `shots/site-1..3.jpg`
+(660x1264, aspect .522), cycled every 5.2s with a 330ms fade.
