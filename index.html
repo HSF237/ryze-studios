@@ -254,8 +254,8 @@ html:not(.js) .w i{transform:none}
 .wg a:hover{transform:translateY(-4px);border-color:#413a31}
 .wg img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top center;background:#0b0a09}
 .wg span{display:block;padding:11px 13px 1px;font:600 .82rem Inter,sans-serif;color:var(--fg)}
-.wg small{display:block;padding:2px 13px 12px;font:400 .68rem Inter,sans-serif;color:var(--mu);
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wg small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  padding:3px 13px 12px;font:400 .7rem/1.35 Inter,sans-serif;color:var(--mu)}
 @media(max-width:600px){.wg{grid-template-columns:1fr 1fr;gap:10px}.wg span{font-size:.72rem;padding:8px 9px 0}.wg small{font-size:.6rem;padding:2px 9px 9px}}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
@@ -376,33 +376,33 @@ $('svc').innerHTML=R(SV,(s,i)=>`<div class="row r"><span class="n">0${i+1}</span
 $('wk').innerHTML=R(WK,(s,i)=>`<div class="wc r${s[6]?' has':''}" style="background:${s[3]};color:${s[4]};--d:${i*.09}s">${s[6]?`<div class="sv"><img src="${s[6]}" alt="${s[0]} — homepage" loading="lazy" decoding="async"></div>`:''}<div class="tg">${R(s[5],t=>`<span>${t}</span>`)}</div><div><h3>${s[0]}</h3><p>${s[1]}</p>${s[2]?`<p style="margin-top:14px;opacity:1"><a href="${s[2].indexOf('.html')>0?s[2]:'https://'+s[2]}" target="_blank" rel="noopener" style="border-bottom:1px solid">${s[2].indexOf('.html')>0?'Play it now':s[2]} ↗</a></p>`:''}</div></div>`.replace('" style="background','" style="background'));
 /* every other shipped site, with a real screenshot of the live page */
 const ALL=[
- ['CARZO','https://hsf237.github.io/carzo/','w-carzo'],
- ['Tech Orbit Hub','https://hsf237.github.io/tech-orbit/','w-tech-orbit'],
- ['Muttam Souq','https://hsf237.github.io/muttamsouq.com/','w-muttamsouq'],
- ['Ryze Store','https://ryzestore.vercel.app','w-ryzestore'],
- ['Rendezvous','https://hsf237.github.io/rendezvous.com/','w-rendezvous'],
- ['G-Zel','https://hsf237.github.io/g-zel.com/','w-g-zel'],
- ['Ruchi Food','https://hsf237.github.io/ruchifood/','w-ruchifood'],
- ['Sol Harbor','https://hsf237.github.io/sol-harbor/','w-sol-harbor'],
- ['Kerala Bus Times','https://kerala-bus-time-report.vercel.app','w-kerala-bus'],
- ['Pulse Grid','https://pulsegrid-jet.vercel.app','w-pulsegrid'],
- ['Eco Guard','https://hsf237.github.io/ecoguard/','w-ecoguard'],
- ['AI Finder','https://aifinder-phi.vercel.app','w-aifinder'],
- ['Science Quiz','https://hsf237.github.io/sciencequiz/','w-sciencequiz'],
- ['Play 11','https://hsf237.github.io/play11.com/','w-play11'],
- ['EduSphere','https://hsf237.github.io/edusphere/','w-edusphere'],
- ['VEloop Exchange','https://veloop-exchange-center.vercel.app','w-veloop'],
- ['CoreUI Kit','https://core-ui-kit-v2-3.vercel.app','w-coreui'],
- ['Elite Web Studio','https://hsf237.github.io/elitewebstudio.in/','w-elitewebstudio'],
- ['Al Awaans','https://al-awaans-site.vercel.app','w-al-awaans'],
- ['NOV','https://hsf237.github.io/NOV/','w-nov'],
- ['Fahad Portfolio','https://hsf237.github.io/fahadsportfolio/','w-fahadsportfolio'],
- ['Sinan Portfolio','https://hsf237.github.io/sinansportfolio/','w-sinansportfolio'],
- ['Hasan Portfolio','https://hsf237.github.io/hasansportfolio.com/','w-hasansportfolio']
+ ['CARZO','https://hsf237.github.io/carzo/','w-carzo','Dark, racing-themed store for scale models and RC cars'],
+ ['Tech Orbit Hub','https://hsf237.github.io/tech-orbit/','w-tech-orbit','Free global community for developers and tech creators'],
+ ['Muttam Souq','https://hsf237.github.io/muttamsouq.com/','w-muttamsouq','Online store with cart, checkout and delivery'],
+ ['Ryze Store','https://ryzestore.vercel.app','w-ryzestore','Marketplace frontend — React, Vite, Firebase'],
+ ['Rendezvous','https://hsf237.github.io/rendezvous.com/','w-rendezvous','Badminton academy website'],
+ ['Güzel','https://hsf237.github.io/g-zel.com/','w-g-zel','Men\'s clothing label — luxury, kept simple'],
+ ['Ruchi Food','https://hsf237.github.io/ruchifood/','w-ruchifood','Kerala home-kitchen food brand'],
+ ['Sol Harbor','https://hsf237.github.io/sol-harbor/','w-sol-harbor','Open-world driving game built with three.js'],
+ ['Kerala Bus Times','https://kerala-bus-time-report.vercel.app','w-kerala-bus','Bus timings and stop arrivals across Kerala'],
+ ['Pulse Grid','https://pulsegrid-jet.vercel.app','w-pulsegrid','IoT telemetry dashboard starter'],
+ ['Eco Guard','https://hsf237.github.io/ecoguard/','w-ecoguard','Plastic-pollution awareness site with an impact calculator'],
+ ['AI Finder','https://aifinder-phi.vercel.app','w-aifinder','AI content-authenticity detection web app'],
+ ['Science Quiz','https://hsf237.github.io/sciencequiz/','w-sciencequiz','Space-themed science quiz game'],
+ ['Play 11','https://hsf237.github.io/play11.com/','w-play11','Jersey brand site — HTML, CSS, vanilla JS'],
+ ['EduSphere','https://hsf237.github.io/edusphere/','w-edusphere','School platform — this URL is serving the deployment guide'],
+ ['VEloop Exchange','https://veloop-exchange-center.vercel.app','w-veloop','Rewards exchange centre redesign'],
+ ['CoreUI Kit','https://core-ui-kit-v2-3.vercel.app','w-coreui','Open-source React + Tailwind UI registry'],
+ ['Elite Web Studio','https://hsf237.github.io/elitewebstudio.in/','w-elitewebstudio','Cyberpunk-styled web studio site'],
+ ['Al Awaans','https://al-awaans-site.vercel.app','w-al-awaans','Mobile accessories shop, UAE'],
+ ['NOV','https://hsf237.github.io/NOV/','w-nov','Cinematic 3D launch page for an AI robot'],
+ ['Fahad Portfolio','https://hsf237.github.io/fahadsportfolio/','w-fahadsportfolio','Personal portfolio'],
+ ['Sinan Portfolio','https://hsf237.github.io/sinansportfolio/','w-sinansportfolio','Personal portfolio'],
+ ['Hasan Portfolio','https://hsf237.github.io/hasansportfolio.com/','w-hasansportfolio','Portfolio — \'14 y/o creative dev\'']
 ];
 $('wg').innerHTML=R(ALL,a=>{
   let host='';try{host=new URL(a[1]).hostname.replace(/^www\./,'')}catch(e){host=a[1]}
-  return '<a href="'+a[1]+'" target="_blank" rel="noopener"><img src="shots/'+a[2]+'.jpg" alt="'+a[0]+' website" loading="lazy" decoding="async"><span>'+a[0]+'</span><small>'+host+'</small></a>';
+  return '<a href="'+a[1]+'" target="_blank" rel="noopener"><img src="shots/'+a[2]+'.jpg" alt="'+a[0]+' website" loading="lazy" decoding="async"><span>'+a[0]+'</span><small>'+a[3]+'</small></a>';
 });
 $('prc').innerHTML=R(PRICING,(s,i)=>`<div class="pc r ${s.pop?'pop':''}" ${D(i)}>${s.pop?'<span class="bd">MOST POPULAR</span>':''}<h3>${s.n}</h3><p>${s.d}</p><div class="pr">${s.p}<small> / project</small></div><ul>${R(s.f,f=>`<li>${f}</li>`)}</ul><a class="btn mag" href="${wa('Hi RYZE STUDIOS! I’m interested in the '+s.n+' plan.')}" target="_blank" rel="noopener">Choose ${s.n}</a></div>`);
 $('ado').innerHTML=R(ADDONS,a=>`<div class="ad r"><b>${a[0]}</b><span>${a[1]}</span></div>`);
