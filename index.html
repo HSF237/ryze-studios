@@ -98,7 +98,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--ln);padding:56px 0
 .hv::before{content:"";position:absolute;width:min(460px,86vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,90,44,.26),rgba(255,90,44,0) 72%);z-index:0;pointer-events:none}
 .ph1{width:min(292px,62vw);border-radius:46px;border-width:7px;box-shadow:0 70px 120px -40px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.14)}
 .nc.n1{left:-4%;top:12%}
-.nc.n2{right:-2%;bottom:14%}
+.nc.n2{right:-8%;bottom:9%}
 .sc{position:absolute;left:max(4.5%,calc((100% - 1200px)/2));bottom:24px;display:flex;align-items:center;gap:10px;font:500 .66rem/1 Inter,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--mu)}
 .sc span{display:block;width:1px;height:26px;background:linear-gradient(var(--ac),transparent);animation:scb 2s ease-in-out infinite}
 @keyframes scb{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(4px)}}
@@ -135,7 +135,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--ln);padding:56px 0
   .hpr span{font-size:.6rem;letter-spacing:.04em;margin-top:4px}
   .hv{min-height:400px}
   /* the top chip lands on "Sunrise Bakery" at this width; keep only the bottom one */
-  .nc.n1{display:none}
+  .nc{display:none}
   .nc{padding:10px 13px;font-size:.78rem}
   .nc.n2{right:-3%;bottom:11%}
 }
@@ -206,6 +206,35 @@ nav{background:rgba(12,11,10,.95);box-shadow:0 10px 30px -18px rgba(0,0,0,.85)}
 .ps.v3 .v3btn{margin-top:auto;background:#16202b;color:#fff;text-align:center;border-radius:7px;padding:9px;font:600 .66rem Inter,sans-serif}
 .hnote{margin-top:14px;font:500 .72rem/1.5 Inter,sans-serif;letter-spacing:.01em;color:var(--dimmer);max-width:38ch}
 .hnote b{color:var(--mu);font-weight:600}
+/* ===== phone mockups v3: photographic, near-black, one accent word (from the references) ===== */
+.ps.v1{background:#0a0a0e;color:#f2f2f7;border-radius:26px;gap:10px}
+.ps.v2{background:#0b0a09;color:#f4f1ea;border-radius:26px;gap:10px}
+.ps.v3{background:#0e1012;color:#eef0f2;border-radius:26px;gap:10px}
+.ps .ph-img{position:relative;border-radius:14px;overflow:hidden;flex:none}
+.ps .ph-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ps .ph-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08) 25%,rgba(0,0,0,.9))}
+.ps .ph-img>div{position:relative;z-index:2;height:100%;padding:11px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.ps.v1 .ph-img{height:228px}
+.ps.v2 .ph-img{height:208px}
+.ps.v3 .ph-img{height:236px}
+.ps .eb2{font:700 .44rem/1 Inter,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.ps .hb{font:800 .92rem/1.14 'Bricolage Grotesque',Inter,sans-serif;letter-spacing:-.02em;color:#fff}
+.ps .hb i{font-style:normal}
+.ps.v1 .hb i{color:#8f83ff}
+.ps.v2 .hb i{color:#ffc21a}
+.ps.v3 .hb{font:italic 400 1.06rem/1.16 'Instrument Serif',serif;letter-spacing:-.01em}
+.ps .sub2{font:400 .57rem/1.45 Inter,sans-serif;color:rgba(255,255,255,.55)}
+.ps .lnk{margin-top:auto;align-self:flex-start;font:600 .57rem Inter,sans-serif;color:#fff;display:inline-flex;gap:6px;align-items:center;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:3px}
+.ps.v2 .pillY{margin-top:8px;align-self:flex-start;background:#ffc21a;color:#181200;border-radius:99px;padding:9px 14px;font:700 .57rem Inter,sans-serif}
+.ps.v2 .chips{margin-top:auto;display:flex;gap:6px}
+.ps.v2 .chips i{flex:1;text-align:center;font:500 .46rem Inter,sans-serif;font-style:normal;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.16);border-radius:6px;padding:6px 4px}
+.ps.v3 .shop{margin-top:8px;align-self:flex-start;background:#fff;color:#0b0b0e;padding:9px 13px;font:700 .52rem Inter,sans-serif;letter-spacing:.15em}
+.ps.v3 .dots{margin-top:8px;display:flex;gap:7px}
+.ps.v3 .dots i{width:34px;height:34px;border-radius:50%;flex:none;background:url(shots/apparel.jpg) 50% 32%/cover}
+.ps.v3 .price{margin-top:auto;display:flex;justify-content:space-between;align-items:baseline;font:600 .58rem Inter,sans-serif;color:#fff}
+.ps.v3 .price span{color:#fff;font-weight:700}
+.ps .next{margin-top:auto;padding-top:9px;border-top:1px solid rgba(255,255,255,.11);display:flex;flex-direction:column;gap:5px}
+.ps .next b{font:600 .58rem Inter,sans-serif;color:#fff}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
 
@@ -357,22 +386,29 @@ setTimeout(_hwState,600);
   if(!ps) return;
   const chip=document.querySelector('.nc.n1');
   const V=[
-    {c:'v1', chip:['New order!','2× Sourdough · just now'], h:
-      '<b>🥐 Sunrise Bakery</b><small>Open now · 7am–9pm</small>'+
-      '<div class="pt">Fresh every day</div>'+
-      '<div class="pgd"><i>🍞<em>Sourdough</em></i><i>🧁<em>Cupcakes</em></i></div>'+
-      '<span class="po">Order on WhatsApp</span>'},
-    {c:'v2', chip:['New order!','1× Bouquet · just now'], h:
-      '<div class="v2hero"><span>Petal &amp; Stem</span></div>'+
-      '<small>Same-day delivery · Kochi</small>'+
-      '<ul><li>Bouquets <span>from ₹499</span></li><li>Gift boxes <span>from ₹799</span></li><li>Wedding sets <span>from ₹2,499</span></li></ul>'+
-      '<div class="v2gal"><i></i><i></i></div>'+
-      '<a class="v2cta">Order on WhatsApp →</a>'},
-    {c:'v3', chip:['Enquiry','Living room · just now'], h:
-      '<div class="v3head"><span class="v3logo">N</span><b>Nova Interiors</b></div>'+
-      '<small>Slots this week</small>'+
-      '<ul><li>Living room <span>open</span></li><li>Lighting <span>2 slots</span></li><li>Full home <span>1 slot</span></li><li>Wardrobes <span>3 slots</span></li></ul>'+
-      '<span class="v3btn">Book a slot</span>'}
+    {c:'v1', chip:['New enquiry','Studio site · just now'], h:
+      '<div class="ph-img"><img src="shots/studio.jpg" alt=""><div>'+
+      '<span class="eb2">Ideas / Design / Technology</span>'+
+      '<b class="hb">Turning ideas into <i>digital reality</i></b></div></div>'+
+      '<p class="sub2">Modern websites and digital experiences that help brands grow.</p>'+
+      '<a class="lnk">Explore our work →</a>'+
+      '<div class="next"><span class="eb2">What we do</span><b>Design · Build · Launch</b></div>'},
+    {c:'v2', chip:['Test drive booked','Huracán EVO · just now'], h:
+      '<div class="ph-img"><img src="shots/car.jpg" alt=""><div>'+
+      '<span class="eb2">Drive your dream</span>'+
+      '<b class="hb">Premium cars, <i>better tomorrow</i></b></div></div>'+
+      '<p class="sub2">Curated inventory, verified history, all in one place.</p>'+
+      '<a class="pillY">Explore cars →</a>'+
+      '<div class="chips"><i>Trusted</i><i>24/7</i><i>Insured</i></div>'+
+      '<div class="next"><span class="eb2">Popular cars</span><b>Huracán EVO · ₹4,50,000</b></div>'},
+    {c:'v3', chip:['Order placed','1× Hoodie · just now'], h:
+      '<div class="ph-img"><img src="shots/apparel.jpg" alt=""><div>'+
+      '<span class="eb2">New season</span>'+
+      '<b class="hb">Built for the next chapter.</b></div></div>'+
+      '<a class="shop">SHOP NOW →</a>'+
+      '<div class="dots"><i></i><i></i><i></i><i></i></div>'+
+      '<div class="price">Essential hoodie <span>₹2,499</span></div>'+
+      '<div class="next"><span class="eb2">Best sellers</span><b>Logo tee · ₹1,299</b></div>'}
   ];
   const apply=v=>{ps.className='ps '+v.c;ps.innerHTML=v.h;if(chip)chip.innerHTML='💬 <b>'+v.chip[0]+'</b><small>'+v.chip[1]+'</small>'};
   apply(V[0]);
