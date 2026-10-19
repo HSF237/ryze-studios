@@ -171,6 +171,18 @@ h2.sp,.sec h2,h1.sp{text-wrap:balance}
    the pill shape but guarantees contrast on both dark and light sections */
 nav{background:rgba(12,11,10,.95);box-shadow:0 10px 30px -18px rgba(0,0,0,.85)}
 
+/* ===== landing hero v4: depth + a mockup that shows range ===== */
+.hero{isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px,rgba(239,234,224,.13) 1px,transparent 0);
+  background-size:26px 26px;
+  -webkit-mask-image:radial-gradient(115% 85% at 50% 0%,#000 25%,transparent 72%);
+  mask-image:radial-gradient(115% 85% at 50% 0%,#000 25%,transparent 72%)}
+.hero::after{content:"";position:absolute;right:-12%;top:-32%;width:68vw;height:68vw;border-radius:50%;z-index:0;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(255,90,44,.11),transparent 72%)}
+.hg{position:relative;z-index:2}
+.ps{transition:opacity .32s ease}
+
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
 
 ::selection{background:var(--ac);color:#fff}
@@ -313,6 +325,34 @@ _next.addEventListener('click',()=>_hwGo(1));
 _hw.addEventListener('scroll',_hwState,{passive:true});
 addEventListener('resize',_hwState);
 setTimeout(_hwState,600);
+
+/* the phone cycles through three kinds of shop — one mockup, three proofs of range */
+(function phoneCycle(){
+  const ps=document.querySelector('.ps');
+  if(!ps) return;
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  const S=[
+    ['🥐','Sunrise Bakery','Open now · 7am–9pm','Fresh every day','🍞','Sourdough','🧁','Cupcakes','New order!','2× Sourdough · just now'],
+    ['💐','Petal & Stem','Open now · 9am–8pm','Same-day delivery','🌷','Bouquets','🎁','Gift boxes','New order!','1× Bouquet · just now'],
+    ['📐','Nova Interiors','Open · slots this week','See the portfolio','🛋️','Living rooms','💡','Lighting','Enquiry','Living room · just now']
+  ];
+  const chip=document.querySelector('.nc.n1');
+  let i=0, stopped=false;
+  document.addEventListener('visibilitychange',()=>{stopped=document.hidden});
+  setInterval(()=>{
+    if(stopped) return;
+    i=(i+1)%S.length;
+    ps.style.opacity=0;
+    setTimeout(()=>{
+      const s=S[i];
+      ps.innerHTML='<b>'+s[0]+' '+s[1]+'</b><small>'+s[2]+'</small><div class="pt">'+s[3]+
+        '</div><div class="pgd"><i>'+s[4]+'<em>'+s[5]+'</em></i><i>'+s[6]+'<em>'+s[7]+'</em></i></div>'+
+        '<span class="po">Order on WhatsApp</span>';
+      if(chip) chip.innerHTML='💬 <b>'+s[8]+'</b><small>'+s[9]+'</small>';
+      ps.style.opacity=1;
+    },330);
+  },5200);
+})();
 const hv=$('hv'),ph=$('ph');hv.addEventListener('pointermove',e=>{const r=hv.getBoundingClientRect();ph.style.transform=`rotateY(${((e.clientX-r.left)/r.width-.5)*26}deg) rotateX(${-((e.clientY-r.top)/r.height-.5)*18}deg)`});hv.addEventListener('pointerleave',()=>ph.style.transform='');
 </script>
 </body>
