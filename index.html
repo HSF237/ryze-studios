@@ -261,6 +261,27 @@ html:not(.js) .w i{transform:none}
   padding:3px 13px 12px;font:400 .7rem/1.35 Inter,sans-serif;color:var(--mu)}
 @media(max-width:600px){.wg{grid-template-columns:1fr 1fr;gap:10px}.wg span{font-size:.72rem;padding:8px 9px 0}.wg small{font-size:.6rem;padding:2px 9px 9px}}
 
+
+/* ---------- project detail view ---------- */
+.sv{cursor:zoom-in}
+#proj{position:fixed;inset:0;z-index:200;background:rgba(6,5,5,.88);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:18px}
+#proj.hidden{display:none}
+.pcard{width:min(1080px,100%);max-height:94vh;overflow:auto;background:#121110;border:1px solid var(--ln);border-radius:18px;padding:22px;position:relative}
+.px{position:absolute;right:12px;top:10px;background:none;border:0;color:var(--mu);font-size:28px;line-height:1;cursor:pointer}
+.px:hover{color:#fff}
+.phead h2{font:800 clamp(1.3rem,2.4vw,1.9rem)/1.1 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em;margin:0 0 6px;color:var(--fg)}
+.phead p{margin:0 0 4px;color:var(--mu);max-width:72ch;font-size:.92rem}
+.pscroll{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:12px;border:1px solid var(--ln);background:#0b0a09;margin-top:16px}
+.pscroll img{display:block;width:100%;height:auto}
+.pscroll.run img{animation:scrollpage 20s linear infinite alternate}
+@keyframes scrollpage{from{transform:translateY(0)}to{transform:translateY(var(--shift,-0px))}}
+.pscroll img.still{height:100%;object-fit:cover;object-position:top center}
+.pscroll b.tag{position:absolute;left:10px;top:10px;z-index:2;background:rgba(10,9,8,.75);border:1px solid var(--ln);border-radius:99px;padding:5px 10px;font:500 .66rem Inter;color:var(--mu)}
+.pthumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.pthumbs img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top center;border-radius:8px;border:1px solid var(--ln);background:#0b0a09}
+.plink{display:inline-block;margin-top:14px;color:var(--ac);font-weight:600;font-size:.9rem;border-bottom:1px solid}
+@media(max-width:600px){.pcard{padding:16px}.pthumbs{gap:6px}}
+
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
 
 ::selection{background:var(--ac);color:#fff}
@@ -477,6 +498,97 @@ setTimeout(_hwState,600);
 /* only hide-and-reveal once everything above actually ran */
 document.documentElement.classList.add('js');
 const hv=$('hv'),ph=$('ph');hv.addEventListener('pointermove',e=>{const r=hv.getBoundingClientRect();ph.style.transform=`rotateY(${((e.clientX-r.left)/r.width-.5)*26}deg) rotateX(${-((e.clientY-r.top)/r.height-.5)*18}deg)`});hv.addEventListener('pointerleave',()=>ph.style.transform='');
+</script>
+<script>
+(function(){
+const PRJ=[
+  {n:'Hasan — Portfolio',u:'https://hsf237.github.io/hasan/',d:'Personal portfolio and playground',t:['Portfolio','Personal'],s:['hasan'],tall:'hasan',bg:'#1b1a17',fg:'#efeae0'},
+  {n:'Al Awaans (Leens)',u:'https://leens.online',d:'Abu Dhabi tech store, online shop',t:['E-commerce','React'],s:['leens'],tall:'al-awaans',bg:'#2d4f55',fg:'#efeae0'},
+  {n:'CoreUI Kit',u:'https://core-ui-kit-v2-3.vercel.app',d:'Open-source React + Tailwind UI registry',t:['Open source','React'],s:['w-coreui'],tall:'coreui',bg:'#cfd6dc',fg:'#12181d'},
+  {n:'TISK School',u:'https://tiskems.edu.in',d:'Official school website',t:['Website','Responsive'],s:['tisk'],tall:'tisk',bg:'#b5523b',fg:'#fbf1e6'},
+  {n:'Meridian Arch Studio',u:'https://meridianarchstudio.com',d:'Architecture studio website',t:['React','Node.js'],s:['meridian'],tall:'meridian',bg:'#c8a97a',fg:'#1a1410'},
+  {n:'Voxel Sandbox',u:'voxel-sandbox.html',d:'A playable voxel world in one 68 KB file, built from scratch with WebGL2',t:['WebGL2','Game'],s:['voxel'],tall:null,bg:'#5c6b3d',fg:'#f1f0e0'},
+  {n:'CARZO',u:'https://carzocrs.vercel.app',d:'Scale models and RC cars — dark, racing-themed store, Next.js 16 + Tailwind 4',t:['Store','Racing'],s:['w-carzo'],tall:null,bg:'#171513',fg:'#efeae0'},
+  {n:'EduSphere',u:'https://eduspere-beta.vercel.app',d:'School management platform — attendance, homework, exams and parent updates',t:['Platform','School'],s:['w-edusphere'],tall:'edusphere',bg:'#eef0fb',fg:'#1a1f3d'},
+  {n:'Tech Orbit Hub',u:'https://hsf237.github.io/tech-orbit/',d:'Free global community for developers and tech creators',t:['Community','Hub'],s:['w-tech-orbit'],tall:null,bg:'#171616',fg:'#efeae0'},
+  {n:'Muttam Souq',u:'https://hsf237.github.io/muttamsouq.com/',d:'Online store with cart, checkout and delivery',t:['Store','Cart'],s:['muttamsouq-0','muttamsouq-1','muttamsouq-2'],tall:'muttamsouq',bg:'#e8e6dd',fg:'#1a1613'},
+  {n:'Ryze Store',u:'https://ryzestore.vercel.app',d:'Marketplace frontend — React, Vite, Firebase',t:['Marketplace','React'],s:['ryzestore-0','ryzestore-1','ryzestore-2'],tall:'ryzestore',bg:'#141211',fg:'#efeae0'},
+  {n:'Rendezvous',u:'https://hsf237.github.io/rendezvous.com/',d:'Badminton academy website',t:['Club','Sport'],s:['rendezvous-0','rendezvous-1','rendezvous-2'],tall:'rendezvous',bg:'#d7dedd',fg:'#1a1613'},
+  {n:'Güzel',u:'https://hsf237.github.io/g-zel.com/',d:'Men\'s clothing label — luxury, kept simple',t:['Brand','Fashion'],s:['g-zel-0','g-zel-1','g-zel-2'],tall:'g-zel',bg:'#f2efe8',fg:'#1a1613'},
+  {n:'Ruchi Food',u:'https://hsf237.github.io/ruchifood/',d:'Kerala home-kitchen food brand',t:['Brand','Food'],s:['ruchifood-0','ruchifood-1','ruchifood-2'],tall:'ruchifood',bg:'#1a1512',fg:'#efeae0'},
+  {n:'Sol Harbor',u:'https://hsf237.github.io/sol-harbor/',d:'Open-world driving game built with three.js',t:['Game','three.js'],s:['sol-harbor-0','sol-harbor-1','sol-harbor-2'],tall:null,bg:'#151a1f',fg:'#efeae0'},
+  {n:'Kerala Bus Times',u:'https://kerala-bus-time-report.vercel.app',d:'Bus timings and stop arrivals across Kerala',t:['Tool','Data'],s:['kerala-bus-0','kerala-bus-1','kerala-bus-2'],tall:'kerala-bus',bg:'#e6ecef',fg:'#121a20'},
+  {n:'Pulse Grid',u:'https://pulsegrid-jet.vercel.app',d:'IoT telemetry dashboard starter',t:['Dashboard','IoT'],s:['pulsegrid-0','pulsegrid-1','pulsegrid-2'],tall:'pulsegrid',bg:'#12151a',fg:'#efeae0'},
+  {n:'AI Finder',u:'https://aifinder-phi.vercel.app',d:'AI content-authenticity detection web app',t:['Web app','AI'],s:['aifinder-0','aifinder-1','aifinder-2'],tall:'aifinder',bg:'#15141b',fg:'#efeae0'},
+  {n:'VEloop Exchange',u:'https://veloop-exchange-center.vercel.app',d:'Rewards exchange centre redesign',t:['Web app','Rewards'],s:['veloop-0','veloop-1','veloop-2'],tall:'veloop',bg:'#15161a',fg:'#efeae0'},
+  {n:'Elite Web Studio',u:'https://hsf237.github.io/elitewebstudio.in/',d:'Cyberpunk-styled web studio site',t:['Studio','Cyberpunk'],s:['elitewebstudio-0','elitewebstudio-1','elitewebstudio-2'],tall:'elitewebstudio',bg:'#151019',fg:'#efeae0'},
+  {n:'Fahad Portfolio',u:'https://hsf237.github.io/fahadsportfolio/',d:'Personal portfolio',t:['Portfolio'],s:['fahadsportfolio-0','fahadsportfolio-1','fahadsportfolio-2'],tall:'fahadsportfolio',bg:'#14161c',fg:'#efeae0'},
+  {n:'Sinan Portfolio',u:'https://hsf237.github.io/sinansportfolio/',d:'Personal portfolio',t:['Portfolio'],s:['sinansportfolio-0','sinansportfolio-1','sinansportfolio-2'],tall:'sinansportfolio',bg:'#14161c',fg:'#efeae0'}
+];
+  var host=function(u){return u.replace(/^https?:\/\//,'').replace(/\/$/,'')};
+  function card(p,i){
+    var dots = p.s.length>1 ? '<div class="wth">'+p.s.map(function(s,k){return '<i data-k="'+k+'" class="'+(k?'':'on')+'"></i>'}).join('')+'</div>' : '';
+    return '<div class="wc has" data-i="'+i+'" style="background:'+p.bg+';color:'+p.fg+'">'+
+      '<div class="sv"><img data-base="'+p.s[0].replace(/-\d+$/,'')+'" src="shots/'+p.s[0]+'.jpg" alt="'+p.n+' website" loading="lazy" decoding="async">'+dots+'</div>'+
+      '<div class="tg">'+p.t.map(function(t){return '<span>'+t+'</span>'}).join('')+'</div>'+
+      '<div><h3>'+p.n+'</h3><p>'+p.d+'</p>'+
+      '<p style="margin-top:14px;opacity:1"><a href="'+p.u+'" target="_blank" rel="noopener" style="border-bottom:1px solid">'+host(p.u)+' →</a></p></div></div>';
+  }
+  var wk=document.getElementById('wk'), wg=document.getElementById('wg');
+  if(wk) wk.innerHTML=PRJ.slice(0,6).map(card).join('');
+  if(wg) wg.innerHTML=PRJ.slice(6).map(function(p,i){return card(p,i+6)}).join('');
+
+  var ov=document.createElement('div');
+  ov.id='proj'; ov.className='hidden';
+  ov.innerHTML='<div class="pcard"><button class="px" aria-label="Close">×</button>'+
+    '<div class="phead"><h2></h2><p class="pd"></p></div>'+
+    '<div class="pscroll"></div><div class="pthumbs"></div>'+
+    '<a class="plink" target="_blank" rel="noopener">Open the live site →</a></div>';
+  document.body.appendChild(ov);
+  var frame=ov.querySelector('.pscroll'), thumbs=ov.querySelector('.pthumbs'), h2=ov.querySelector('h2'),
+      pd=ov.querySelector('.pd'), pl=ov.querySelector('.plink');
+
+  function sizeShift(){
+    var img=frame.querySelector('img');
+    if(!img) return;
+    frame.style.setProperty('--shift', Math.min(0, frame.clientHeight - img.clientHeight) + 'px');
+  }
+  function open(i){
+    var p=PRJ[i];
+    h2.textContent=p.n; pd.textContent=p.d;
+    pl.href=p.u; pl.textContent='Open '+host(p.u)+' →';
+    thumbs.innerHTML=p.s.map(function(s){return '<img src="shots/'+s+'.jpg" alt="'+p.n+'" loading="lazy">'}).join('');
+    if(p.tall){
+      frame.className='pscroll run';
+      frame.innerHTML='<b class="tag">full page · scroll-through</b><img src="shots/tall/'+p.tall+'.jpg" alt="'+p.n+' full page">';
+    } else {
+      frame.className='pscroll';
+      frame.innerHTML='<img class="still" src="shots/'+p.s[0]+'.jpg" alt="'+p.n+'">';
+    }
+    ov.classList.remove('hidden');
+    document.body.style.overflow='hidden';
+    var img=frame.querySelector('img');
+    if(img){ if(img.complete) sizeShift(); else img.addEventListener('load',sizeShift,{once:true}); }
+  }
+  function close(){ ov.classList.add('hidden'); document.body.style.overflow=''; }
+  ov.addEventListener('click',function(e){ if(e.target===ov) close(); });
+  ov.querySelector('.px').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  window.addEventListener('resize',sizeShift);
+
+  document.addEventListener('click',function(e){
+    var dot=e.target.closest('.wth i');
+    if(dot){
+      e.stopPropagation(); e.preventDefault();
+      var c=dot.closest('.wc'), im=c.querySelector('.sv img'), p=PRJ[+c.dataset.i];
+      im.src='shots/'+p.s[+dot.dataset.k]+'.jpg';
+      c.querySelectorAll('.wth i').forEach(function(x){x.classList.toggle('on',x===dot)});
+      return;
+    }
+    var sv=e.target.closest('.wc .sv');
+    if(sv){ e.preventDefault(); open(+sv.closest('.wc').dataset.i); }
+  });
+})();
 </script>
 </body>
 </html>
