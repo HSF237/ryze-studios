@@ -62,3 +62,32 @@ cycles every 5.2s with a 330ms fade. Those three images are the studio's **own**
 3. Inline Python/Node through PowerShell mangles quotes. Always write a script file.
 4. Screenshots of SPA sites need 5-15 s before capture, or they come out blank.
    `carzo` returns a pure white page even after 15 s — use the supplied screenshot.
+
+---
+
+## State at 19 Oct 2026 (what exists, so nothing has to be re-derived)
+
+**Repo** `HSF237/ryze-studios` · live `https://hsf237.github.io/ryze-studios/` · Pages from `main`, root.
+
+**22 projects on the work page.** First 6 are featured (big cards): Hasan Portfolio,
+Al Awaans (Leens), CoreUI Kit, TISK School, Meridian Arch, Voxel Sandbox. The other 16 are
+the grid: CARZO, EduSphere, Tech Orbit, Muttam Souq, Ryze Store, Rendezvous, Güzel,
+Ruchi Food, Sol Harbor, Kerala Bus Times, Pulse Grid, AI Finder, VEloop Exchange,
+Elite Web Studio, Fahad Portfolio, Sinan Portfolio.
+
+**Clicking a card opens a project view** with a scroll-through + the three stills.
+
+**Captures on disk**
+
+| folder | contents | used by |
+|---|---|---|
+| `shots/` | 51 JPEGs — `<slug>-0..2.jpg` galleries, `w-<slug>.jpg` singles, `site-1..3.jpg` phone mockups, `tisk/meridian/leens/voxel.jpg` featured | cards |
+| `shots/tall/` | 21 full-page JPEGs, 720px wide, 1.6 MB total | project scroll-through |
+| `og.png` | 1200x630 share card | WhatsApp / LinkedIn preview |
+
+**No tall capture exists for:** sol-harbor (WebGL canvas), tech-orbit, carzo (both render
+blank) and voxel-sandbox (local file). Those open with a still.
+
+**The four PNG originals of the featured screenshots** (`meridian.png`, `tisk.png`,
+`leens.png`, `voxel.png`) were only intermediates; their `.jpg` versions are what the site
+loads. Nothing depends on the PNGs.
