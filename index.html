@@ -376,7 +376,7 @@ $('svc').innerHTML=R(SV,(s,i)=>`<div class="row r"><span class="n">0${i+1}</span
 $('wk').innerHTML=R(WK,(s,i)=>`<div class="wc r${s[6]?' has':''}" style="background:${s[3]};color:${s[4]};--d:${i*.09}s">${s[6]?`<div class="sv"><img src="${s[6]}" alt="${s[0]} — homepage" loading="lazy" decoding="async"></div>`:''}<div class="tg">${R(s[5],t=>`<span>${t}</span>`)}</div><div><h3>${s[0]}</h3><p>${s[1]}</p>${s[2]?`<p style="margin-top:14px;opacity:1"><a href="${s[2].indexOf('.html')>0?s[2]:'https://'+s[2]}" target="_blank" rel="noopener" style="border-bottom:1px solid">${s[2].indexOf('.html')>0?'Play it now':s[2]} ↗</a></p>`:''}</div></div>`.replace('" style="background','" style="background'));
 /* every other shipped site, with a real screenshot of the live page */
 const ALL=[
- ['CARZO','https://hsf237.github.io/carzo/','site-2','#171513','#efeae0',['Store','Racing'],'Dark, racing-themed store for scale models and RC cars'],'Dark, racing-themed store for scale models and RC cars'],
+ ['CARZO','https://hsf237.github.io/carzo/','site-2','#12110e','#efeae0',['Store','Racing'],'Dark, racing-themed store for scale models and RC cars'],
  ['Tech Orbit Hub','https://hsf237.github.io/tech-orbit/','w-tech-orbit','#171616','#efeae0',['Community','Hub'],'Free global community for developers and tech creators'],
  ['Muttam Souq','https://hsf237.github.io/muttamsouq.com/','w-muttamsouq','#e8e6dd','#1a1613',['Store','Cart'],'Online store with cart, checkout and delivery'],
  ['Ryze Store','https://ryzestore.vercel.app','w-ryzestore','#141211','#efeae0',['Marketplace','React'],'Marketplace frontend — React, Vite, Firebase'],
