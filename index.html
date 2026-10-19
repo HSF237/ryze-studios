@@ -6,6 +6,7 @@
 <title>RYZE STUDIOS — Websites that turn visitors into customers</title>
 <meta name="description" content="RYZE STUDIOS builds fast, premium websites for shop owners and local businesses. Live in days, no monthly fees.">
 <meta name="theme-color" content="#0e0d0c">
+<!-- shots/site-1..3.jpg are the studio's own designs, used with the author's permission -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RYZE STUDIOS">
 <meta property="og:title" content="RYZE STUDIOS — websites that turn visitors into customers">
@@ -235,6 +236,10 @@ nav{background:rgba(12,11,10,.95);box-shadow:0 10px 30px -18px rgba(0,0,0,.85)}
 .ps.v3 .price span{color:#fff;font-weight:700}
 .ps .next{margin-top:auto;padding-top:9px;border-top:1px solid rgba(255,255,255,.11);display:flex;flex-direction:column;gap:5px}
 .ps .next b{font:600 .58rem Inter,sans-serif;color:#fff}
+/* the mockups now show the real designs at full bleed, so the screen is the screenshot */
+.ps.v1,.ps.v2,.ps.v3{padding:0;overflow:hidden;background:#000;display:block;position:relative}
+.ps .shot{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.nc{display:none!important}
 
 /* if the script never finishes (old browser, cached partial file), show the content instead of a blank page */
 html:not(.js) #home{display:block}
@@ -249,7 +254,7 @@ nav{top:calc(12px + env(safe-area-inset-top,0px));left:50%;right:auto;width:min(
 .hg{display:grid;grid-template-columns:1.12fr .88fr;gap:30px;align-items:center}
 .dw{right:3vw;top:8%;width:min(46vw,560px)}
 .hv{position:relative;display:grid;place-items:center;perspective:1100px;min-height:540px}
-.ph1{position:relative;width:min(272px,66vw);aspect-ratio:9/18.5;border-radius:40px;background:#171614;border:6px solid #2b2926;padding:10px;box-shadow:0 50px 90px rgba(0,0,0,.5);transform:rotate(-4deg);transition:transform .25s;transform-style:preserve-3d}
+.ph1{position:relative;width:min(272px,66vw);aspect-ratio:9/16.2;border-radius:40px;background:#171614;border:6px solid #2b2926;padding:10px;box-shadow:0 50px 90px rgba(0,0,0,.5);transform:rotate(-4deg);transition:transform .25s;transform-style:preserve-3d}
 .nt{position:absolute;top:14px;left:50%;width:70px;height:20px;margin-left:-35px;border-radius:99px;background:#171614;z-index:2}
 .ps{background:var(--cl);color:var(--ink);border-radius:28px;height:100%;padding:38px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:hidden}.ps b{font:800 1.05rem 'Bricolage Grotesque';letter-spacing:-.03em}.ps small{color:#6b665c;font-size:.7rem;margin-top:-8px}
 .pt{height:96px;border-radius:16px;background:var(--ac);display:flex;align-items:end;padding:10px 12px;color:#fff;font:italic 400 1.45rem 'Instrument Serif'}.pgd{display:grid;grid-template-columns:1fr 1fr;gap:8px}.pgd i{font-style:normal;background:#d9d2c2;border-radius:14px;padding:12px 8px;font-size:1.7rem;display:flex;flex-direction:column;gap:4px;text-align:center}.pgd em{font:500 .68rem Inter;font-style:normal}
@@ -402,28 +407,11 @@ setTimeout(_hwState,600);
   const chip=document.querySelector('.nc.n1');
   const V=[
     {c:'v1', chip:['New enquiry','Studio site · just now'], h:
-      '<div class="ph-img"><img src="shots/studio.jpg" alt=""><div>'+
-      '<span class="eb2">Ideas / Design / Technology</span>'+
-      '<b class="hb">Turning ideas into <i>digital reality</i></b></div></div>'+
-      '<p class="sub2">Modern websites and digital experiences that help brands grow.</p>'+
-      '<a class="lnk">Explore our work →</a>'+
-      '<div class="next"><span class="eb2">What we do</span><b>Design · Build · Launch</b></div>'},
-    {c:'v2', chip:['Test drive booked','Huracán EVO · just now'], h:
-      '<div class="ph-img"><img src="shots/car.jpg" alt=""><div>'+
-      '<span class="eb2">Drive your dream</span>'+
-      '<b class="hb">Premium cars, <i>better tomorrow</i></b></div></div>'+
-      '<p class="sub2">Curated inventory, verified history, all in one place.</p>'+
-      '<a class="pillY">Explore cars →</a>'+
-      '<div class="chips"><i>Trusted</i><i>24/7</i><i>Insured</i></div>'+
-      '<div class="next"><span class="eb2">Popular cars</span><b>Huracán EVO · ₹4,50,000</b></div>'},
-    {c:'v3', chip:['Order placed','1× Hoodie · just now'], h:
-      '<div class="ph-img"><img src="shots/apparel.jpg" alt=""><div>'+
-      '<span class="eb2">New season</span>'+
-      '<b class="hb">Built for the next chapter.</b></div></div>'+
-      '<a class="shop">SHOP NOW →</a>'+
-      '<div class="dots"><i></i><i></i><i></i><i></i></div>'+
-      '<div class="price">Essential hoodie <span>₹2,499</span></div>'+
-      '<div class="next"><span class="eb2">Best sellers</span><b>Logo tee · ₹1,299</b></div>'}
+      '<img class="shot" src="shots/site-1.jpg" alt="Studio website design">'},
+    {c:'v2', chip:['Test drive booked','Huracan EVO · just now'], h:
+      '<img class="shot" src="shots/site-2.jpg" alt="Car dealership website design">'},
+    {c:'v3', chip:['Order placed','1x Hoodie · just now'], h:
+      '<img class="shot" src="shots/site-3.jpg" alt="Clothing store website design">'}
   ];
   const apply=v=>{ps.className='ps '+v.c;ps.innerHTML=v.h;if(chip)chip.innerHTML='💬 <b>'+v.chip[0]+'</b><small>'+v.chip[1]+'</small>'};
   apply(V[0]);
@@ -434,7 +422,7 @@ setTimeout(_hwState,600);
     if(hidden) return;
     i=(i+1)%V.length;
     ps.style.opacity=0;
-    setTimeout(()=>{apply(V[i]);ps.style.opacity=1},330);
+    setTimeout(()=>{try{apply(V[i])}finally{ps.style.opacity=1}},330);
   },5200);
 })();
 /* only hide-and-reveal once everything above actually ran */
