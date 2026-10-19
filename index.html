@@ -312,7 +312,7 @@ nav{top:calc(12px + env(safe-area-inset-top,0px));left:50%;right:auto;width:min(
 
 <section class="pg" id="work"><div class="wrap"><header class="ph"><p class="eb r">Selected work</p><h1 class="sp" data-t="Real sites for *real *businesses."></h1><p class="sub r">10+ websites shipped for schools, studios, stores and more.</p></header><div class="grid" id="wk" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-bottom:20px"></div>
 <h3 class="wgh">More work <span>23 more, every one live — click any to open it</span></h3>
-<div class="wg" id="wg"></div>
+<div class="grid" id="wg" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))"></div>
 <div id="also"></div></div></section>
 
 <section class="pg" id="pricing"><div class="wrap"><header class="ph"><p class="eb r">Pricing</p><h1 class="sp" data-t="Simple pricing. *No *surprises."></h1><p class="sub r">Pay 50% to start, 50% on delivery. No monthly fees to us.</p></header>
@@ -376,34 +376,37 @@ $('svc').innerHTML=R(SV,(s,i)=>`<div class="row r"><span class="n">0${i+1}</span
 $('wk').innerHTML=R(WK,(s,i)=>`<div class="wc r${s[6]?' has':''}" style="background:${s[3]};color:${s[4]};--d:${i*.09}s">${s[6]?`<div class="sv"><img src="${s[6]}" alt="${s[0]} — homepage" loading="lazy" decoding="async"></div>`:''}<div class="tg">${R(s[5],t=>`<span>${t}</span>`)}</div><div><h3>${s[0]}</h3><p>${s[1]}</p>${s[2]?`<p style="margin-top:14px;opacity:1"><a href="${s[2].indexOf('.html')>0?s[2]:'https://'+s[2]}" target="_blank" rel="noopener" style="border-bottom:1px solid">${s[2].indexOf('.html')>0?'Play it now':s[2]} ↗</a></p>`:''}</div></div>`.replace('" style="background','" style="background'));
 /* every other shipped site, with a real screenshot of the live page */
 const ALL=[
- ['CARZO','https://hsf237.github.io/carzo/','w-carzo','Dark, racing-themed store for scale models and RC cars'],
- ['Tech Orbit Hub','https://hsf237.github.io/tech-orbit/','w-tech-orbit','Free global community for developers and tech creators'],
- ['Muttam Souq','https://hsf237.github.io/muttamsouq.com/','w-muttamsouq','Online store with cart, checkout and delivery'],
- ['Ryze Store','https://ryzestore.vercel.app','w-ryzestore','Marketplace frontend — React, Vite, Firebase'],
- ['Rendezvous','https://hsf237.github.io/rendezvous.com/','w-rendezvous','Badminton academy website'],
- ['Güzel','https://hsf237.github.io/g-zel.com/','w-g-zel','Men\'s clothing label — luxury, kept simple'],
- ['Ruchi Food','https://hsf237.github.io/ruchifood/','w-ruchifood','Kerala home-kitchen food brand'],
- ['Sol Harbor','https://hsf237.github.io/sol-harbor/','w-sol-harbor','Open-world driving game built with three.js'],
- ['Kerala Bus Times','https://kerala-bus-time-report.vercel.app','w-kerala-bus','Bus timings and stop arrivals across Kerala'],
- ['Pulse Grid','https://pulsegrid-jet.vercel.app','w-pulsegrid','IoT telemetry dashboard starter'],
- ['Eco Guard','https://hsf237.github.io/ecoguard/','w-ecoguard','Plastic-pollution awareness site with an impact calculator'],
- ['AI Finder','https://aifinder-phi.vercel.app','w-aifinder','AI content-authenticity detection web app'],
- ['Science Quiz','https://hsf237.github.io/sciencequiz/','w-sciencequiz','Space-themed science quiz game'],
- ['Play 11','https://hsf237.github.io/play11.com/','w-play11','Jersey brand site — HTML, CSS, vanilla JS'],
- ['EduSphere','https://hsf237.github.io/edusphere/','w-edusphere','School platform — this URL is serving the deployment guide'],
- ['VEloop Exchange','https://veloop-exchange-center.vercel.app','w-veloop','Rewards exchange centre redesign'],
- ['CoreUI Kit','https://core-ui-kit-v2-3.vercel.app','w-coreui','Open-source React + Tailwind UI registry'],
- ['Elite Web Studio','https://hsf237.github.io/elitewebstudio.in/','w-elitewebstudio','Cyberpunk-styled web studio site'],
- ['Al Awaans','https://al-awaans-site.vercel.app','w-al-awaans','Mobile accessories shop, UAE'],
- ['NOV','https://hsf237.github.io/NOV/','w-nov','Cinematic 3D launch page for an AI robot'],
- ['Fahad Portfolio','https://hsf237.github.io/fahadsportfolio/','w-fahadsportfolio','Personal portfolio'],
- ['Sinan Portfolio','https://hsf237.github.io/sinansportfolio/','w-sinansportfolio','Personal portfolio'],
- ['Hasan Portfolio','https://hsf237.github.io/hasansportfolio.com/','w-hasansportfolio','Portfolio — \'14 y/o creative dev\'']
+ ['CARZO','https://hsf237.github.io/carzo/','w-carzo','#f1ede5','#1a1613',['Store','Next.js'],'Dark, racing-themed store for scale models and RC cars'],
+ ['Tech Orbit Hub','https://hsf237.github.io/tech-orbit/','w-tech-orbit','#171616','#efeae0',['Community','Hub'],'Free global community for developers and tech creators'],
+ ['Muttam Souq','https://hsf237.github.io/muttamsouq.com/','w-muttamsouq','#e8e6dd','#1a1613',['Store','Cart'],'Online store with cart, checkout and delivery'],
+ ['Ryze Store','https://ryzestore.vercel.app','w-ryzestore','#141211','#efeae0',['Marketplace','React'],'Marketplace frontend — React, Vite, Firebase'],
+ ['Rendezvous','https://hsf237.github.io/rendezvous.com/','w-rendezvous','#d7dedd','#1a1613',['Club','Sport'],'Badminton academy website'],
+ ['Güzel','https://hsf237.github.io/g-zel.com/','w-g-zel','#dfddd0','#1a1613',['Brand','Fashion'],'Men\'s clothing label — luxury, kept simple'],
+ ['Ruchi Food','https://hsf237.github.io/ruchifood/','w-ruchifood','#121813','#efeae0',['Brand','Food'],'Kerala home-kitchen food brand'],
+ ['Sol Harbor','https://hsf237.github.io/sol-harbor/','w-sol-harbor','#141215','#efeae0',['Game','three.js'],'Open-world driving game built with three.js'],
+ ['Kerala Bus Times','https://kerala-bus-time-report.vercel.app','w-kerala-bus','#e2e0d5','#1a1613',['Tool','Data'],'Bus timings and stop arrivals across Kerala'],
+ ['Pulse Grid','https://pulsegrid-jet.vercel.app','w-pulsegrid','#0e0f11','#efeae0',['Dashboard','IoT'],'IoT telemetry dashboard starter'],
+ ['Eco Guard','https://hsf237.github.io/ecoguard/','w-ecoguard','#122a1e','#efeae0',['Campaign','Awareness'],'Plastic-pollution awareness site with an impact calculator'],
+ ['AI Finder','https://aifinder-phi.vercel.app','w-aifinder','#0e0d0e','#efeae0',['Web app','AI'],'AI content-authenticity detection web app'],
+ ['Science Quiz','https://hsf237.github.io/sciencequiz/','w-sciencequiz','#0d0d0d','#efeae0',['Game','Quiz'],'Space-themed science quiz game'],
+ ['Play 11','https://hsf237.github.io/play11.com/','w-play11','#161516','#efeae0',['Brand','Jerseys'],'Jersey brand site — HTML, CSS, vanilla JS'],
+ ['EduSphere','https://hsf237.github.io/edusphere/','w-edusphere','#f0ece4','#1a1613',['Platform','School'],'School platform — this URL is serving the deployment guide'],
+ ['VEloop Exchange','https://veloop-exchange-center.vercel.app','w-veloop','#0f0e10','#efeae0',['Web app','Rewards'],'Rewards exchange centre redesign'],
+ ['CoreUI Kit','https://core-ui-kit-v2-3.vercel.app','w-coreui','#0f0f0e','#efeae0',['Open source','React'],'Open-source React + Tailwind UI registry'],
+ ['Elite Web Studio','https://hsf237.github.io/elitewebstudio.in/','w-elitewebstudio','#0e0e0e','#efeae0',['Studio','Cyberpunk'],'Cyberpunk-styled web studio site'],
+ ['Al Awaans','https://al-awaans-site.vercel.app','w-al-awaans','#12110e','#efeae0',['Store','UAE'],'Mobile accessories shop, UAE'],
+ ['NOV','https://hsf237.github.io/NOV/','w-nov','#0e0f11','#efeae0',['WebGL','3D'],'Cinematic 3D launch page for an AI robot'],
+ ['Fahad Portfolio','https://hsf237.github.io/fahadsportfolio/','w-fahadsportfolio','#0d0d0e','#efeae0',['Portfolio'],'Personal portfolio'],
+ ['Sinan Portfolio','https://hsf237.github.io/sinansportfolio/','w-sinansportfolio','#0e0d0d','#efeae0',['Portfolio'],'Personal portfolio'],
+ ['Hasan Portfolio','https://hsf237.github.io/hasansportfolio.com/','w-hasansportfolio','#0e0d0c','#efeae0',['Portfolio'],'Portfolio — \'14 y/o creative dev\'']
 ];
-$('wg').innerHTML=R(ALL,a=>{
-  let host='';try{host=new URL(a[1]).hostname.replace(/^www\./,'')}catch(e){host=a[1]}
-  return '<a href="'+a[1]+'" target="_blank" rel="noopener"><img src="shots/'+a[2]+'.jpg" alt="'+a[0]+' website" loading="lazy" decoding="async"><span>'+a[0]+'</span><small>'+a[3]+'</small></a>';
-});
+$('wg').innerHTML=R(ALL,(a,i)=>
+  '<div class="wc r has" style="background:'+a[3]+';color:'+a[4]+';--d:'+((i%6)*0.05)+'s">'+
+  '<div class="sv"><img src="shots/'+a[2]+'.jpg" alt="'+a[0]+' website" loading="lazy" decoding="async"></div>'+
+  '<div class="tg">'+R(a[5],t=>'<span>'+t+'</span>')+'</div>'+
+  '<div><h3>'+a[0]+'</h3><p>'+a[6]+'</p>'+
+  '<p style="margin-top:14px;opacity:1"><a href="'+a[1]+'" target="_blank" rel="noopener" style="border-bottom:1px solid">'+
+  a[1].replace(/^https?:\/\//,'').replace(/\/$/,'')+' →</a></p></div></div>');
 $('prc').innerHTML=R(PRICING,(s,i)=>`<div class="pc r ${s.pop?'pop':''}" ${D(i)}>${s.pop?'<span class="bd">MOST POPULAR</span>':''}<h3>${s.n}</h3><p>${s.d}</p><div class="pr">${s.p}<small> / project</small></div><ul>${R(s.f,f=>`<li>${f}</li>`)}</ul><a class="btn mag" href="${wa('Hi RYZE STUDIOS! I’m interested in the '+s.n+' plan.')}" target="_blank" rel="noopener">Choose ${s.n}</a></div>`);
 $('ado').innerHTML=R(ADDONS,a=>`<div class="ad r"><b>${a[0]}</b><span>${a[1]}</span></div>`);
 $('fq').innerHTML=R(FQ,q=>`<div class="fq r"><h3>${q[0]}</h3><p>${q[1]}</p></div>`);
