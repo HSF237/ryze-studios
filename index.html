@@ -236,6 +236,11 @@ nav{background:rgba(12,11,10,.95);box-shadow:0 10px 30px -18px rgba(0,0,0,.85)}
 .ps .next{margin-top:auto;padding-top:9px;border-top:1px solid rgba(255,255,255,.11);display:flex;flex-direction:column;gap:5px}
 .ps .next b{font:600 .58rem Inter,sans-serif;color:#fff}
 
+/* if the script never finishes (old browser, cached partial file), show the content instead of a blank page */
+html:not(.js) #home{display:block}
+html:not(.js) .r{opacity:1;transform:none}
+html:not(.js) .w i{transform:none}
+
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
 
 ::selection{background:var(--ac);color:#fff}
@@ -314,6 +319,16 @@ nav{top:calc(12px + env(safe-area-inset-top,0px));left:50%;right:auto;width:min(
 <footer><div class="wrap"><div class="f"><div class="c"><b style="color:var(--fg);letter-spacing:.14em">RYZE STUDIOS</b><span>Websites that turn visitors<br>into customers.</span></div><div class="c" id="fl"></div><div class="c"><a data-wa>WhatsApp +91 94968 29330</a><a href="mailto:zerox9861@gmail.com">zerox9861@gmail.com</a><a href="https://github.com/HSF237" target="_blank" rel="noopener">GitHub</a></div></div><div class="wm">RYZE STUDIOS</div><p style="margin-top:24px">© 2026 RYZE STUDIOS · Kerala, India · Working worldwide</p></div></footer>
 <a id="wa" data-wa aria-label="WhatsApp">💬</a>
 <script>
+/* visible error reporter: a blank page is useless, tell the visitor what broke */
+window.addEventListener('error',function(ev){
+  try{
+    var b=document.createElement('div');
+    b.style.cssText='position:fixed;left:8px;right:8px;bottom:8px;z-index:9999;background:#3a0d12;color:#ffd7dc;border:1px solid #8b2a35;border-radius:8px;padding:10px 12px;font:12px ui-monospace,monospace;white-space:pre-wrap';
+    b.textContent='Script error: '+(ev.message||'unknown')+' (line '+(ev.lineno||'?')+')';
+    document.body.appendChild(b);
+  }catch(e){}
+});
+
 /* ===== EDIT ME: all site content lives here ===== */
 const PHONE='919496829330';
 const PRICING=[ // template: replace prices + features whenever you like
@@ -422,6 +437,8 @@ setTimeout(_hwState,600);
     setTimeout(()=>{apply(V[i]);ps.style.opacity=1},330);
   },5200);
 })();
+/* only hide-and-reveal once everything above actually ran */
+document.documentElement.classList.add('js');
 const hv=$('hv'),ph=$('ph');hv.addEventListener('pointermove',e=>{const r=hv.getBoundingClientRect();ph.style.transform=`rotateY(${((e.clientX-r.left)/r.width-.5)*26}deg) rotateX(${-((e.clientY-r.top)/r.height-.5)*18}deg)`});hv.addEventListener('pointerleave',()=>ph.style.transform='');
 </script>
 </body>
